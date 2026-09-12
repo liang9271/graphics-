@@ -126,3 +126,22 @@ Then, when you restart your terminals, you should be able to run the vcpkg progr
 vcpkg
 ```
 
+...........................................................................................................
+
+setting up the vcpkg and configuring with CMake
+cd buildVCPkg
+cmake --build
+
+created a new folder: renderlib
+using vec3 given code 
+run
+./renderlib/mainCode under buildVCPkg
+run 
+./renderlib/mainCode > image.ppm
+to save the result
+
+run
+./OpenGL/glfwExample
+to show the image and get screenshot
+
+
