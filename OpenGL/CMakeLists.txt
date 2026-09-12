@@ -1,3 +1,5 @@
+find_package(GLEW REQUIRED)
+
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 add_executable (glfwExample
@@ -5,7 +7,7 @@ add_executable (glfwExample
   GLSL.cpp GLSL.h
 )
 
-target_link_libraries (glfwExample PRIVATE GLEW::GLEW)
+target_link_libraries (glfwExample PRIVATE /opt/homebrew/lib/libGLEW.dylib)
 target_link_libraries (glfwExample PRIVATE glfw)
 
 if(APPLE)
