@@ -5,6 +5,7 @@
 # src files.
 #
 include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR}/renderlib)
 
 enable_testing()
 include(CTest)
@@ -19,8 +20,8 @@ include(Catch)
 # 
 set(UTESTS 
   utest_Success
-  utest_Failure)
-
+  utest_vec3)
+#utest_Failure
 # 
 # For each of the executables named in ${UTESTS}, compile them into a
 # boost unit test for use by the CMake CTest system.

@@ -144,4 +144,10 @@ run
 ./OpenGL/glfwExample
 to show the image and get screenshot
 
+create a new file name:utest_vec3.cpp under /starterCode/buildVCPkg/utest
+wirte the unitest
 
+go to /starterCode/Utest/CMakeLists
+and remove the failure and add the new file name without the .cpp
+
+go to /starterCode/buildVCPkg, and cmake --build, also run make and getting the result back.
