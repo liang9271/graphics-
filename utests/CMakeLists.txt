@@ -20,7 +20,8 @@ include(Catch)
 # 
 set(UTESTS 
   utest_Success
-  utest_vec3)
+  utest_vec3
+  utest_ray)
 #utest_Failure
 # 
 # For each of the executables named in ${UTESTS}, compile them into a

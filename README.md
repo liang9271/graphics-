@@ -127,6 +127,7 @@ vcpkg
 ```
 
 ...........................................................................................................
+LAB1
 
 setting up the vcpkg and configuring with CMake
 cd buildVCPkg
@@ -151,3 +152,19 @@ go to /starterCode/Utest/CMakeLists
 and remove the failure and add the new file name without the .cpp
 
 go to /starterCode/buildVCPkg, and cmake --build, also run make and getting the result back.
+
+LAB 2
+
+creating Framebuffer.h and framebuffer.cpp
+
+change mainCode.cpp 
+
+add libraries to CMakeList.txt, run ./src/miancode and get png test_lerp.png file
+
+cmake project
+
+create a unitest for the ray, for store and when t =0 and 1, negative t and positive t, and no change at all.  
+
+create a camera.h file for camera
+
+
