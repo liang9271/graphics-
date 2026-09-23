@@ -14,6 +14,7 @@ target_link_libraries(cs4212-util PUBLIC glm::glm)
 
 add_executable(mainCode
   mainCode.cpp
+  Sphere.cpp
 )
 
 target_link_libraries(mainCode PRIVATE cs4212-util)

@@ -21,21 +21,27 @@ include(Catch)
 set(UTESTS 
   utest_Success
   utest_vec3
-  utest_ray)
+  utest_ray
+  utest_sphere)
 #utest_Failure
 # 
 # For each of the executables named in ${UTESTS}, compile them into a
 # boost unit test for use by the CMake CTest system.
 # 
 foreach(uexec ${UTESTS})
-  add_executable(${uexec} ${uexec}.cpp)
+
+  if(uexec STREQUAL "utest_sphere")
+    add_executable(${uexec} ${uexec}.cpp ${CMAKE_SOURCE_DIR}/src/Sphere.cpp)
+  else()
+    add_executable(${uexec} ${uexec}.cpp)
+  endif()
+
   target_link_libraries(${uexec}
-	PRIVATE
-	Catch2::Catch2WithMain
-	cs4212-util
+    PRIVATE
+    Catch2::Catch2WithMain
+    cs4212-util
   )
 
-  # add_test(NAME ${uexec} COMMAND $<TARGET_FILE:${uexec}>)
   catch_discover_tests(${uexec})
-endforeach(uexec)
 
+endforeach(uexec)
