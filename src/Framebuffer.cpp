@@ -61,3 +61,11 @@ void Framebuffer::exportToPNG(const std::string &filename)
 
   imData.write(filename);
 }
+
+int Framebuffer::getwidth() const {
+    return width;
+}
+
+int Framebuffer::getHeight() const {
+    return height;
+}

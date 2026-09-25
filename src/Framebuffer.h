@@ -6,6 +6,7 @@
 
 class Framebuffer {
     public:
+
     Framebuffer();
     Framebuffer(int width, int height);
 
@@ -16,6 +17,9 @@ class Framebuffer {
     void setPixelColor(int idx, const color& c);
 
     void exportToPNG(const std::string& filename);
+
+    int getwidth() const;
+    int getHeight() const;
 
     private:
     int width, height;

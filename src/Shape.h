@@ -7,4 +7,6 @@ public:
 virtual bool intersect(const ray& r) = 0;
 virtual ~Shape() =  default;
 
+
+
 };
