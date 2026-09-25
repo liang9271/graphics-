@@ -168,3 +168,8 @@ create a unitest for the ray, for store and when t =0 and 1, negative t and posi
 create a camera.h file for camera
 
 
+LAB 3
+set up the camera position and sphere, use x and y as coordinate to get pixels,
+ray direction is from the pxiel - camera position
+and givethe sphere color if the ray has intersection with it otherwise use differnt color for the background
+ 
