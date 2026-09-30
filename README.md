@@ -173,3 +173,14 @@ set up the camera position and sphere, use x and y as coordinate to get pixels,
 ray direction is from the pxiel - camera position
 and givethe sphere color if the ray has intersection with it otherwise use differnt color for the background
  
+LAB 4
+updated hitsturcture structure in Shape class, contains p, normal, t, r. point where the ray hits the sphere and surface normal, 
+distance of the ray and where it hits intersection, and when the ray hits the sphere. 
+
+updated shader infrasturcture, virtual rayColor() function, it allows different type of shaders to calculate the colors of surfaces. 
+
+lambertian shader: with point light at 0, 10, 5
+
+blinnphong shader: calculates specular highlight
+
+i also impletmented two sphere in one scene for a easy comparasion.
