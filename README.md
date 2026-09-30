@@ -183,4 +183,4 @@ lambertian shader: with point light at 0, 10, 5
 
 blinnphong shader: calculates specular highlight
 
-i also impletmented two sphere in one scene for a easy comparasion.
+i also impletmented two sphere in one scene for a easy comparasion and fliiped the scene for png image.

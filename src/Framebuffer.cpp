@@ -48,8 +48,8 @@ void Framebuffer::exportToPNG(const std::string &filename)
     for (int i = 0; i < width; ++i) {
         // int flipped_j = (height-1) - j;
 
-        // vec3 color = fbStorage[flipped_j * width + i];
-        vec3 color = fbStorage[j*width + i];
+        int flippedj = (height-1) - j;
+        vec3 color = fbStorage[flippedj * width + i];
 
         png::byte r = static_cast<png::byte>(color.x() * 255.0);
         png::byte g = static_cast<png::byte>(color.y() * 255.0);
