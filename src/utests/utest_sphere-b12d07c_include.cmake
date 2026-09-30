@@ -1,0 +1,5 @@
+if(EXISTS "/Users/tianyiliang/starterCode/src/utests/utest_sphere-b12d07c_tests.cmake")
+  include("/Users/tianyiliang/starterCode/src/utests/utest_sphere-b12d07c_tests.cmake")
+else()
+  add_test(utest_sphere_NOT_BUILT-b12d07c utest_sphere_NOT_BUILT-b12d07c)
+endif()

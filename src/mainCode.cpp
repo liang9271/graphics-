@@ -4,17 +4,33 @@
 #include "ray.h"
 #include "color.h"
 #include "Sphere.h"
+#include "LambertianShader.h"
+#include "BlinnPhongShader.h"
+#include <memory>
 
 int main(int argc, char** argv) {
     
-Framebuffer fb(300, 300);
+Framebuffer fb(200, 200);
 
   //camera delaration
     point3 camera_center(0,0,0);
 
 //sphere delaration
-   Sphere sphere(point3(0,0,-5), 1.0);
+    Sphere lambertianSphere(point3(-1.2, 0, -5), 1.0);
+    Sphere blinnPhongSphere(point3(1.2, 0, -5), 1.0);
 
+
+auto lambertian = std::make_shared<LambertianShader>(
+    color(0.8, 0.2, 0.2));
+
+lambertianSphere.setShader(lambertian);
+
+auto blinnPhong = std::make_shared<BlinnPhongShader>(
+    color(0.2, 0.2, 0.8), 
+    color(1.0, 1.0, 1.0),
+    32.0);
+
+blinnPhongSphere.setShader(blinnPhong);
 
 
     //go through pixels horizontally
@@ -34,23 +50,55 @@ Framebuffer fb(300, 300);
             ray r(camera_center, direction);
 
             //check if its hit the sphere
-            if (sphere.intersect(r)) {
+HitSphere lambertianHit;
+HitSphere blinnPhongHit;
 
-                color color0(0.1, 0.3, 1.0); // blue
-                // set the pixel to white if it intersects the sphere
-                fb.setPixelColor(x, y, color0 ); // set the pixel to blue if it intersects the sphere
-            }
-            else {
+bool hitLambertian = lambertianSphere.intersect(r, lambertianHit);
+bool hitBlinnPhong = blinnPhongSphere.intersect(r, blinnPhongHit);
 
-                double t = static_cast<double>(y) / fb.getHeight();
-                color top(0.8, 0.2, 1.0);
-                color bottom(0.1, 0.5, 1.0);
-                color background = (1.0 - t) * top + t * bottom;
-                // set the pixel to black if it does not intersect the sphere
-                fb.setPixelColor(x, y, background); // set the pixel to black if it does not intersect the sphere
-            }
-        }
-    }   
-    //save the image
-    fb.exportToPNG("test_lerp.png");
+if (hitLambertian && hitBlinnPhong) {
+
+    // Both spheres were hit.
+    // Use the sphere that is closer to the camera.
+    if (lambertianHit.t < blinnPhongHit.t) {
+        color pixelColor =
+            lambertianSphere.getShader()->rayColor(lambertianHit);
+
+        fb.setPixelColor(x, y, pixelColor);
+    }
+    else {
+        color pixelColor =
+            blinnPhongSphere.getShader()->rayColor(blinnPhongHit);
+
+        fb.setPixelColor(x, y, pixelColor);
+    }
 }
+else if (hitLambertian) {
+
+    color pixelColor =
+        lambertianSphere.getShader()->rayColor(lambertianHit);
+
+    fb.setPixelColor(x, y, pixelColor);
+}
+else if (hitBlinnPhong) {
+
+    color pixelColor =
+        blinnPhongSphere.getShader()->rayColor(blinnPhongHit);
+
+    fb.setPixelColor(x, y, pixelColor);
+}
+else {
+
+    double t = static_cast<double>(y) / fb.getHeight();
+
+    color top(0.8, 0.2, 1.0);
+    color bottom(0.1, 0.5, 1.0);
+
+    color background = (1.0 - t) * top + t * bottom;
+
+    fb.setPixelColor(x, y, background);
+}
+        } // y loop 
+    } // x loop
+    fb.exportToPNG("test_lerp.png");
+} // main

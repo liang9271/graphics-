@@ -10,7 +10,7 @@ Sphere::Sphere(const point3& center, double radius)
 {
 }
 
-bool Sphere::intersect(const ray& r)
+bool Sphere::intersect(const ray& r, HitSphere& hit)
 {
 vec3 oc = r.origin() - center;
 
@@ -20,6 +20,16 @@ double c = dot(oc, oc) - radius * radius;
 
 double discriminant = b * b - 4.0 * a * c;
 
-return discriminant >= 0;
+if (discriminant <0) {
+        return false;
+}
+
+double t = (-b - std::sqrt(discriminant)) / (2.0 * a);
+
+hit.t = t;
+hit.p = r.at(t);
+hit.normal = (hit.p - center) / radius;
+hit.r = r; //save the ray that hit the sphere
+return true;
 
 }

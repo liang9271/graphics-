@@ -1,0 +1,5 @@
+if(EXISTS "/Users/tianyiliang/starterCode/src/utests/utest_vec3-b12d07c_tests.cmake")
+  include("/Users/tianyiliang/starterCode/src/utests/utest_vec3-b12d07c_tests.cmake")
+else()
+  add_test(utest_vec3_NOT_BUILT-b12d07c utest_vec3_NOT_BUILT-b12d07c)
+endif()

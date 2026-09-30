@@ -13,8 +13,12 @@ target_link_libraries(cs4212-util PRIVATE Boost::program_options)
 target_link_libraries(cs4212-util PUBLIC glm::glm)
 
 add_executable(mainCode
+
   mainCode.cpp
+
   Sphere.cpp
+  LambertianShader.cpp
+  BlinnPhongShader.cpp
 )
 
 target_link_libraries(mainCode PRIVATE cs4212-util)

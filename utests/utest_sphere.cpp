@@ -1,28 +1,24 @@
 #include <catch2/catch_test_macros.hpp>
+#include "Sphere.h"
 
-#include "../src/Sphere.h"
-#include "../src/ray.h"
-
-TEST_CASE("A Hit")
+TEST_CASE("Sphere hit")
 {
     Sphere sphere(point3(0, 0, -5), 1.0);
 
-    ray r(
-        point3(0, 0, 0),
-        vec3(0, 0, -1)
-    );
+    ray r(point3(0, 0, 0), vec3(0, 0, -1));
 
-    REQUIRE(sphere.intersect(r) == true);
+    HitSphere hit;
+
+    REQUIRE(sphere.intersect(r, hit) == true);
 }
 
-TEST_CASE("A Miss")
+TEST_CASE("Sphere miss")
 {
     Sphere sphere(point3(0, 0, -5), 1.0);
 
-    ray r(
-        point3(0, 0, 0),
-        vec3(0, 2, -1)
-    );
+    ray r(point3(0, 0, 0), vec3(0, 2, -1));
 
-    REQUIRE(sphere.intersect(r) == false);
+    HitSphere hit;
+
+    REQUIRE(sphere.intersect(r, hit) == false);
 }
