@@ -59,8 +59,8 @@ mirrorSphere2->setShader(mirror);
 //triangle as ground
     auto ground = 
     std::make_shared<Triangle>(
-        point3(-5, -1.0, -4), //x
-        point3(5, -1.0, -4), //y
+        point3(-10, -1.0, 3), //x
+        point3(10, -1.0, 3), //y
         point3(0, -1.0, -30) //z depth
     );
 
