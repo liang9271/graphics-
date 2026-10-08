@@ -4,9 +4,25 @@
 
 class Camera {
 public:
-    virtual ray generateRay(int i, int j) = 0;
+    Camera(
+        const point3& position,
+        const vec3& viewDirection,
+        double focalLength,
+        double imagePlaneWidth
+    );
 
-protected:
- vec3  U, V, W;
- vec3 origin;
+    ray getRay(
+        double u,
+        double v,
+        double aspectRatio
+    ) const;
+
+private:
+    point3 position;
+    vec3 forward;
+    vec3 right;
+    vec3 up;
+
+    double focalLength;
+    double imagePlaneWidth;
 };

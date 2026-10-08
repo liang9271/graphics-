@@ -13,7 +13,10 @@ BlinnPhongShader::BlinnPhongShader(
 {
 }
 
-color BlinnPhongShader::rayColor(const HitSphere& h)
+color BlinnPhongShader::rayColor(
+    const HitSphere& h,
+    const Scene& scene,
+    int depth)
 {
     // Point light
     vec3 lightPosition(0, 10, 5);

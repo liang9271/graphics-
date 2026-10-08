@@ -6,10 +6,15 @@ using color = vec3;
 
 struct HitSphere;
 
+class Scene;
+
 class Shader {
 public:
-//every shader provides its own raycolor()
-virtual color rayColor(const HitSphere &h) = 0;
-virtual ~Shader() = default;
+    virtual color rayColor(
+        const HitSphere& h,
+        const Scene& scene,
+        int depth
+    ) = 0;
 
+    virtual ~Shader() = default;
 };

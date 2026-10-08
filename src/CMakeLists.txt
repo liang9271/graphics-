@@ -19,6 +19,11 @@ add_executable(mainCode
   Sphere.cpp
   LambertianShader.cpp
   BlinnPhongShader.cpp
+  Triangle.cpp
+  Scene.cpp
+  Renderer.cpp
+  MirrorShader.cpp
+  Camera.cpp
 )
 
 target_link_libraries(mainCode PRIVATE cs4212-util)

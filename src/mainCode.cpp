@@ -1,104 +1,92 @@
-#include "vec3.h"
 #include "Framebuffer.h"
-#include<iostream>
-#include "ray.h"
 #include "color.h"
 #include "Sphere.h"
+#include "Triangle.h"
 #include "LambertianShader.h"
 #include "BlinnPhongShader.h"
+#include "Scene.h"
+#include "Renderer.h"
+#include "MirrorShader.h"
+#include "Camera.h"
+
 #include <memory>
 
-int main(int argc, char** argv) {
-    
-Framebuffer fb(200, 200);
+int main(int argc, char** argv)
+{
+    // Create the framebuffer
+    Framebuffer fb(200, 200);
 
-  //camera delaration
-    point3 camera_center(0,0,0);
+    // Create the scene
+    Scene scene;
 
-//sphere delaration
-    Sphere lambertianSphere(point3(-1.2, 0, -5), 1.0);
-    Sphere blinnPhongSphere(point3(1.2, 0, -5), 1.0);
+    // Create shaders
+    auto lambertian = std::make_shared<LambertianShader>(
+        color(0.8, 0.2, 0.2));
 
+    auto blinnPhong = std::make_shared<BlinnPhongShader>(
+        color(0.2, 0.2, 0.8),
+        color(1.0, 1.0, 1.0),
+        32.0);
 
-auto lambertian = std::make_shared<LambertianShader>(
-    color(0.8, 0.2, 0.2));
+    auto mirror = std::make_shared<MirrorShader>();
 
-lambertianSphere.setShader(lambertian);
+    // Create spheres
+    auto lambertianSphere =
+        std::make_shared<Sphere>(
+            point3(-1.2, 0, -5),
+            1.0);
 
-auto blinnPhong = std::make_shared<BlinnPhongShader>(
-    color(0.2, 0.2, 0.8), 
-    color(1.0, 1.0, 1.0),
-    32.0);
+    auto blinnPhongSphere =
+        std::make_shared<Sphere>(
+            point3(1.2, 0, -5),
+            1.0);
+//mirror sphere
+    auto mirrorSphere1 =
+    std::make_shared<Sphere>(
+        point3(0, 0 , -8),
+        1.0);
 
-blinnPhongSphere.setShader(blinnPhong);
+    auto mirrorSphere2 =
+    std::make_shared<Sphere>(
+        point3(-3.5, 0, -5),
+        1.0);
 
+mirrorSphere1->setShader(mirror);
+mirrorSphere2->setShader(mirror);
 
-    //go through pixels horizontally
-    for (int x = 0; x < fb.getwidth(); ++x) {
-      //go through pixels vertically  
-        for (int y = 0; y < fb.getHeight(); ++y) {
-        
-            point3 pixel_position(
-                2.0 * x / fb.getwidth() - 1.0,
-                2.0 * y / fb.getHeight() -1.0, 
-                -1.5
-            );
+    lambertianSphere->setShader(lambertian);
+    blinnPhongSphere->setShader(blinnPhong);
+//triangle as ground
+    auto ground = 
+    std::make_shared<Triangle>(
+        point3(-5, -1.0, -4), //x
+        point3(5, -1.0, -4), //y
+        point3(0, -1.0, -30) //z depth
+    );
 
-            //the direction of the ray from the camera center through the pixel
-            vec3 direction = pixel_position - camera_center;
-            // create a ray
-            ray r(camera_center, direction);
+    auto groundShader = 
+    std::make_shared<LambertianShader>(color(0.2, 0.8, 0.2));
+    ground->setShader(groundShader);
 
-            //check if its hit the sphere
-HitSphere lambertianHit;
-HitSphere blinnPhongHit;
+    // Add objects to the scene
+    scene.addShape(lambertianSphere);
+    scene.addShape(blinnPhongSphere);
+    scene.addShape(ground);
+    scene.addShape(mirrorSphere1);
+    scene.addShape(mirrorSphere2);
 
-bool hitLambertian = lambertianSphere.intersect(r, lambertianHit);
-bool hitBlinnPhong = blinnPhongSphere.intersect(r, blinnPhongHit);
+  Camera camera(
+    point3(0, 3.0, 4.0),
+    vec3(0, -1.5, -3.0),
+    0.4,
+    0.5
+);
 
-if (hitLambertian && hitBlinnPhong) {
+Renderer renderer(camera);
+renderer.render(scene, fb);
 
-    // Both spheres were hit.
-    // Use the sphere that is closer to the camera.
-    if (lambertianHit.t < blinnPhongHit.t) {
-        color pixelColor =
-            lambertianSphere.getShader()->rayColor(lambertianHit);
-
-        fb.setPixelColor(x, y, pixelColor);
-    }
-    else {
-        color pixelColor =
-            blinnPhongSphere.getShader()->rayColor(blinnPhongHit);
-
-        fb.setPixelColor(x, y, pixelColor);
-    }
-}
-else if (hitLambertian) {
-
-    color pixelColor =
-        lambertianSphere.getShader()->rayColor(lambertianHit);
-
-    fb.setPixelColor(x, y, pixelColor);
-}
-else if (hitBlinnPhong) {
-
-    color pixelColor =
-        blinnPhongSphere.getShader()->rayColor(blinnPhongHit);
-
-    fb.setPixelColor(x, y, pixelColor);
-}
-else {
-
-    double t = static_cast<double>(y) / fb.getHeight();
-
-    color top(0.8, 0.2, 1.0);
-    color bottom(0.1, 0.5, 1.0);
-
-    color background = (1.0 - t) * top + t * bottom;
-
-    fb.setPixelColor(x, y, background);
-}
-        } // y loop 
-    } // x loop
+    // Save the image
     fb.exportToPNG("test_lerp.png");
-} // main
+
+    return 0;
+}
