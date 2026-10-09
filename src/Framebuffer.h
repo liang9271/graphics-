@@ -1,12 +1,13 @@
+
 #pragma once
 
+#include <string>
 #include <vector>
 #include "vec3.h"
 #include "color.h"
 
 class Framebuffer {
-    public:
-
+public:
     Framebuffer();
     Framebuffer(int width, int height);
 
@@ -20,8 +21,9 @@ class Framebuffer {
 
     int getwidth() const;
     int getHeight() const;
+    void getRGBData(std::vector<unsigned char>& data) const;
 
-    private:
+private:
     int width, height;
     std::vector<color> fbStorage;
 };

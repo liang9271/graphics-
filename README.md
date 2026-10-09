@@ -159,7 +159,9 @@ creating Framebuffer.h and framebuffer.cpp
 
 change mainCode.cpp 
 
-add libraries to CMakeList.txt, run ./src/miancode and get png test_lerp.png file
+add libraries to CMakeList.txt, run ./src/mainCode to open a live preview window.
+The render is also saved as test_lerp.png; press Escape to close the preview.
+Rebuild and run mainCode again after changing the source.
 
 cmake project
 

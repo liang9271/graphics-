@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "SpaceBackground.h"
 
 #include <random>
 #include <limits>
@@ -60,15 +61,7 @@ void Renderer::render(
                         );
                     }
                     else {
-
-                        double t = v;
-
-                        color top(0.8, 0.2, 1.0);
-                        color bottom(0.1, 0.5, 1.0);
-
-                        c +=
-                            (1.0 - t) * top +
-                            t * bottom;
+                        c += spaceBackground(r.direction());
                     }
                 }
             }

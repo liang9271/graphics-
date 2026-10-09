@@ -1,5 +1,6 @@
 #include "MirrorShader.h"
 #include "Scene.h"
+#include "SpaceBackground.h"
 
 MirrorShader::MirrorShader()
 {
@@ -38,10 +39,5 @@ color MirrorShader::rayColor(
             depth - 1
         );
     }
-double t = 0.5 * (reflectedDirection[1] + 1.0);
-
-color top(0.8, 0.2, 1.0);
-color bottom(0.1, 0.5, 1.0);
-
-return (1.0 - t) * top + t * bottom;
+    return spaceBackground(reflectedDirection);
 }

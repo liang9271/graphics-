@@ -33,3 +33,6 @@ target_link_libraries(mainCode PRIVATE ${Boost_PROGRAM_OPTIONS_LIBRARIES})
 target_link_libraries(mainCode PRIVATE PNG::PNG)
 
 target_link_libraries(mainCode PRIVATE ZLIB::ZLIB)
+
+target_include_directories(mainCode PRIVATE ${GLEW_INCLUDE_DIRS})
+target_link_libraries(mainCode PRIVATE glfw ${GLEW_LIBRARIES} OpenGL::GL)
