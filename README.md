@@ -186,3 +186,17 @@ lambertian shader: with point light at 0, 10, 5
 blinnphong shader: calculates specular highlight
 
 i also impletmented two sphere in one scene for a easy comparasion and fliiped the scene for png image.
+
+
+Programming Skill Development - Bronze Level
+
+I implemented the option to be able to put in the width and length when open the png file, so i can change the size of the window by typing "./buildVCPkg/src/mainCode --outputfile test_lerp.png"
+
+i adjusted the camera positiona and triangle distance from the camera, implemented spheres and shader of it, point lights for the highlight and mirrored sphere for all the lights that it reflected of.
+
+i also implemented two mirrored spheres just to fill up the scnece a bit more, and they are currently in differnt posion on the triangle as the ground, changed blackground like space just for a good looking.
+
+shadows are appearing for the detail of the sphere.
+
+implemented anti-aliasing in the render, and it prevents jagging.
+
