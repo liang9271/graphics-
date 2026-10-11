@@ -1,20 +1,12 @@
-#include <iostream>
-#include <cstdlib>
 #include <cmath>
-
-#ifndef WIN32
-#include <unistd.h>
-#include <stdlib.h>
-#include <time.h>
-#endif
 
 #include "Random.h"
 
 using namespace sivelab;
 
-void Random::init(long s)
+void Random::init(std::default_random_engine::result_type s)
 {
-    Random::m_prng.seed(s);
+  m_prng.seed(s);
 
   m_normal_value = false;
 
@@ -35,9 +27,7 @@ void Random::init(long s)
 Random::Random()
   : m_uniform_dist(0.0, 1.0), m_normal_dist(0.0, 1.0)
 {
-#ifndef WIN32
-  init( time(0) % getpid() );
-#endif
+  init(std::random_device{}());
 }
 
 Random::Random(long s)
@@ -58,7 +48,7 @@ double Random::uniform()
 
 double Random::normal()
 {
-    return m_normal_dist(Random::m_prng);
+    return m_normal_dist(m_prng);
 }
 
 // The normal function returns a random number from a Gaussian
@@ -97,6 +87,3 @@ double Random::lcg()
   m_lcg_x = (m_lcg_a * m_lcg_x + m_lcg_c) % m_lcg_m;
   return m_lcg_x / (long double)std::numeric_limits<unsigned long>::max();
 }
-
-
-thread_local std::default_random_engine Random::m_prng;

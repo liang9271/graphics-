@@ -35,8 +35,7 @@ namespace sivelab {
 
     void setSeed(long seedVal);
 
-    // Returns a random number pulled from a uniform distribution.  The
-    // value will be between 0 and 1.
+    // Returns a random number from a uniform distribution in [0, 1).
       double uniform();
 
     // Returns a random number pulled from a normal distribution with
@@ -59,18 +58,16 @@ namespace sivelab {
     }
     
   private:
-      static thread_local std::default_random_engine m_prng;
+      std::default_random_engine m_prng;
       
       std::uniform_real_distribution<double> m_uniform_dist;
       std::normal_distribution<double> m_normal_dist;
 
-    void init(long s);
+    void init(std::default_random_engine::result_type s);
 	
     double randVal()
     {
-        //return m_uniform_dist(m_prng);  // Need to make this safe
-        //across instances and threads!
-        return drand48();
+        return m_uniform_dist(m_prng);
     }
 
     bool m_normal_value;
@@ -95,4 +92,3 @@ namespace sivelab {
   };
   
 }
-
