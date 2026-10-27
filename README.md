@@ -204,10 +204,9 @@ Json
 I integrated the provided JSON scene parser with my renderer. The parser reads a scene sceneloader uses those values to create the camera, shaders, point lights, and supported shapes, then adds them to the scene. Features that are not supported yet, such as area lights and environment maps, report an error.
 
 To render a scene, run:
+cmake --build . --target mainCode
+./src/mainCode --inputfile ../sceneData/scenes_A/oneSphere.json --outputfile oneSphere.png --width 512 --height 512
 
-./buildVCPkg/src/mainCode \
-  --inputfile /path/to/sceneData/scenes_A/oneSphere.json \
-  --outputfile oneSphere.png \
-  --width 512 \
-  --height 512 \
-  --no-preview
+tianyiliang@Tianyis-MacBook-Pro starterCode % cmake --build . --target mainCode
+[ 27%] Built target cs4212-util
+[100%] Built target mainCode
