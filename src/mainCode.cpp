@@ -6,12 +6,16 @@
 #include "BlinnPhongShader.h"
 #include "Scene.h"
 #include "Renderer.h"
+#include "SceneContainer.h"
+#include "SceneLoader.h"
+#include "SceneParser_JSON.h"
 #include "MirrorShader.h"
 #include "Camera.h"
 #include "handleGraphicsArgs.h"
 
 #include <iostream>
 #include <memory>
+#include <stdexcept>
 #include <vector>
 
 #include <GL/glew.h>
@@ -106,80 +110,84 @@ int main(int argc, char** argv)
     Framebuffer fb(args.width, args.height);
 
     // Create the scene
-    Scene scene;
+    SceneContainer sceneContainer;
+    Scene& scene = sceneContainer.getScene();
 
-    // Create shaders
-    auto lambertian = std::make_shared<LambertianShader>(
-        color(0.8, 0.2, 0.2));
+    if (!args.inputFileName.empty()) {
+        try {
+            auto loader = std::make_shared<SceneLoader>(sceneContainer);
+            SceneParser_JSON parser(loader);
+            parser.parseFileData(args.inputFileName);
+            if (!sceneContainer.getCamera().has_value()) {
+                throw std::runtime_error(
+                    "The scene file does not define a camera");
+            }
+        } catch (const std::exception& error) {
+            std::cerr << "Failed to render scene: " << error.what()
+                      << std::endl;
+            return 1;
+        }
+    } else {
+        // Create shaders
+        auto lambertian = std::make_shared<LambertianShader>(
+            color(0.8, 0.2, 0.2));
+        auto blinnPhong = std::make_shared<BlinnPhongShader>(
+            color(0.2, 0.2, 0.8),
+            color(1.0, 1.0, 1.0),
+            32.0);
+        auto mirror = std::make_shared<MirrorShader>();
 
-    auto blinnPhong = std::make_shared<BlinnPhongShader>(
-        color(0.2, 0.2, 0.8),
-        color(1.0, 1.0, 1.0),
-        32.0);
+        auto lambertianSphere =
+            std::make_shared<Sphere>(point3(-1.2, 0, -5), 1.0);
+        auto blinnPhongSphere =
+            std::make_shared<Sphere>(point3(1.2, 0, -5), 1.0);
+        auto mirrorSphere1 =
+            std::make_shared<Sphere>(point3(1.5, 0, -2), 1.0);
+        auto mirrorSphere2 =
+            std::make_shared<Sphere>(point3(-2.5, 0, -6), 1.0);
 
-    auto mirror = std::make_shared<MirrorShader>();
+        mirrorSphere1->setShader(mirror);
+        mirrorSphere2->setShader(mirror);
+        lambertianSphere->setShader(lambertian);
+        blinnPhongSphere->setShader(blinnPhong);
 
-    // Create spheres
-    auto lambertianSphere =
-        std::make_shared<Sphere>(
-            point3(-1.2, 0, -5),
-            1.0);
+        const point3 a(-10, -1, 3);
+        const point3 b(10, -1, 3);
+        const point3 c(30, -1, -30);
+        const point3 d(-30, -1, -30);
+        auto ground1 = std::make_shared<Triangle>(a, b, c);
+        auto ground2 = std::make_shared<Triangle>(a, c, d);
+        auto groundShader =
+            std::make_shared<LambertianShader>(color(0.75, 0.75, 0.75));
+        ground1->setShader(groundShader);
+        ground2->setShader(groundShader);
 
-    auto blinnPhongSphere =
-        std::make_shared<Sphere>(
-            point3(1.2, 0, -5),
-            1.0);
-//mirror sphere
-    auto mirrorSphere1 =
-    std::make_shared<Sphere>(
-        point3(0, 0 , -8),
-        1.0);
+        scene.addShape(lambertianSphere);
+        scene.addShape(blinnPhongSphere);
+        scene.addShape(ground1);
+        scene.addShape(ground2);
+        scene.addShape(mirrorSphere1);
+        scene.addShape(mirrorSphere2);
 
-    auto mirrorSphere2 =
-    std::make_shared<Sphere>(
-        point3(-3.5, 0, -5),
-        1.0);
+        sceneContainer.getCamera().emplace(
+            point3(-1, 5, 2.5),
+            vec3(0, -1.5, -3.0),
+            0.4,
+            0.5);
+    }
 
-    mirrorSphere1->setShader(mirror);
-    mirrorSphere2->setShader(mirror);
-
-    lambertianSphere->setShader(lambertian);
-    blinnPhongSphere->setShader(blinnPhong);
-
-//triangle as ground
-    auto ground = 
-    std::make_shared<Triangle>(
-        point3(-10, -1.0, 3), //x
-        point3(10, -1.0, 3), //y
-        point3(0, -1.0, -30) //z depth
-    );
-
-    auto groundShader = 
-    std::make_shared<LambertianShader>(color(0.75, 0.75, 0.75));
-    ground->setShader(groundShader);
-
-    // Add objects to the scene
-    scene.addShape(lambertianSphere);
-    scene.addShape(blinnPhongSphere);
-    scene.addShape(ground);
-    scene.addShape(mirrorSphere1);
-    scene.addShape(mirrorSphere2);
-
-  Camera camera(
-    point3(-1, 3.0, 1.0),
-    vec3(0, -1.5, -3.0),
-    0.4,
-    0.5
-);
-
-Renderer renderer(camera);
-renderer.render(scene, fb);
+    Renderer renderer(*sceneContainer.getCamera());
+    renderer.render(scene, fb);
 
     // Save the image and change the size of window
     const std::string filename = args.outputFileName.empty()
         ? "test_lerp.png"
         : args.outputFileName;
     fb.exportToPNG(filename);
+
+    if (args.noPreview) {
+        return 0;
+    }
 
     if (glfwInit() == GLFW_FALSE) {
         std::cerr << "Could not initialize GLFW." << std::endl;
@@ -269,7 +277,7 @@ renderer.render(scene, fb);
         }
 
         glViewport(0, 0, windowWidth, windowHeight);
-        glClearColor(0.08f, 0.08f, 0.08f, 1.0f);
+        glClearColor(0.68f, 0.85f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         const float imageAspect =

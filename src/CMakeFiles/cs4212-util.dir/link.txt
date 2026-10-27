@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcs4212-util.a "CMakeFiles/cs4212-util.dir/ArgumentParsing.cpp.o" "CMakeFiles/cs4212-util.dir/handleGraphicsArgs.cpp.o" "CMakeFiles/cs4212-util.dir/model_obj.cpp.o" "CMakeFiles/cs4212-util.dir/Framebuffer.cpp.o"
+/usr/bin/ranlib libcs4212-util.a

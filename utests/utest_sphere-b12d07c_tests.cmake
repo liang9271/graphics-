@@ -1,0 +1,5 @@
+add_test( [==[Sphere hit]==] /Users/tianyiliang/starterCode/utests/utest_sphere [==[Sphere hit]==]  )
+set_tests_properties( [==[Sphere hit]==] PROPERTIES WORKING_DIRECTORY /Users/tianyiliang/starterCode/utests SKIP_RETURN_CODE 4)
+add_test( [==[Sphere miss]==] /Users/tianyiliang/starterCode/utests/utest_sphere [==[Sphere miss]==]  )
+set_tests_properties( [==[Sphere miss]==] PROPERTIES WORKING_DIRECTORY /Users/tianyiliang/starterCode/utests SKIP_RETURN_CODE 4)
+set( utest_sphere_TESTS [==[Sphere hit]==] [==[Sphere miss]==])

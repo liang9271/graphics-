@@ -1,0 +1,16 @@
+utest_Success_NOT_BUILT-b12d07c 0 0
+utest_ray_NOT_BUILT-b12d07c 0 0
+utest_sphere_NOT_BUILT-b12d07c 0 0
+utest_Triangle_NOT_BUILT-b12d07c 0 0
+Simple Success Test 3 0.0028156
+Ray construction stores origin and direction 3 0.00270292
+Ray at t = 0 returns the origin 3 0.00265828
+Ray at t = 1 returns origin plus direction 3 0.00266703
+Ray at positive t 3 0.00260243
+Ray at negative t 3 0.00272389
+Ray does not change after evaluating at 3 0.00266858
+Sphere hit 3 0.00288018
+Sphere miss 3 0.00267708
+Triangle hit 3 0.00283833
+Triangle miss 3 0.00278661
+---

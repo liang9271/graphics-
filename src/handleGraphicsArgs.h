@@ -43,6 +43,7 @@ namespace sivelab {
       const int default_WindowSize = 200;
 
     bool verbose;
+    bool noPreview;
     int windowWidth, windowHeight;
     int width;
     int height;

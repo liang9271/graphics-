@@ -21,6 +21,8 @@ add_executable(mainCode
   BlinnPhongShader.cpp
   Triangle.cpp
   Scene.cpp
+  SceneLoader.cpp
+  SceneParser_JSON.cpp
   Renderer.cpp
   MirrorShader.cpp
   Camera.cpp
@@ -33,6 +35,22 @@ target_link_libraries(mainCode PRIVATE ${Boost_PROGRAM_OPTIONS_LIBRARIES})
 target_link_libraries(mainCode PRIVATE PNG::PNG)
 
 target_link_libraries(mainCode PRIVATE ZLIB::ZLIB)
+target_link_libraries(mainCode PRIVATE nlohmann_json::nlohmann_json)
 
 target_include_directories(mainCode PRIVATE ${GLEW_INCLUDE_DIRS})
 target_link_libraries(mainCode PRIVATE glfw ${GLEW_LIBRARIES} OpenGL::GL)
+
+add_executable(sceneLoaderTest
+  sceneLoaderTest.cpp
+  SceneLoader.cpp
+  SceneParser_JSON.cpp
+  Scene.cpp
+  Sphere.cpp
+  Triangle.cpp
+  Camera.cpp
+  LambertianShader.cpp
+  BlinnPhongShader.cpp
+  MirrorShader.cpp
+)
+target_link_libraries(sceneLoaderTest PRIVATE cs4212-util)
+target_link_libraries(sceneLoaderTest PRIVATE nlohmann_json::nlohmann_json)

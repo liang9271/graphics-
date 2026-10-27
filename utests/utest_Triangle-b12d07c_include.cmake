@@ -1,0 +1,5 @@
+if(EXISTS "/Users/tianyiliang/starterCode/utests/utest_Triangle-b12d07c_tests.cmake")
+  include("/Users/tianyiliang/starterCode/utests/utest_Triangle-b12d07c_tests.cmake")
+else()
+  add_test(utest_Triangle_NOT_BUILT-b12d07c utest_Triangle_NOT_BUILT-b12d07c)
+endif()

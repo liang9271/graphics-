@@ -1,0 +1,223 @@
+Start testing: Oct 26 19:47 CDT
+----------------------------------------------------------
+1/11 Testing: Simple Success Test
+1/11 Test: Simple Success Test
+Command: "/Users/tianyiliang/starterCode/utests/utest_Success" "Simple Success Test"
+Directory: /Users/tianyiliang/starterCode/utests
+"Simple Success Test" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Simple Success Test"
+Randomness seeded to: 822793330
+===============================================================================
+All tests passed (2 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Simple Success Test" end time: Oct 26 19:47 CDT
+"Simple Success Test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/11 Testing: Ray construction stores origin and direction
+2/11 Test: Ray construction stores origin and direction
+Command: "/Users/tianyiliang/starterCode/utests/utest_ray" "Ray construction stores origin and direction"
+Directory: /Users/tianyiliang/starterCode/utests
+"Ray construction stores origin and direction" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Ray construction stores origin and direction"
+Randomness seeded to: 2041294737
+===============================================================================
+All tests passed (6 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Ray construction stores origin and direction" end time: Oct 26 19:47 CDT
+"Ray construction stores origin and direction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/11 Testing: Ray at t = 0 returns the origin
+3/11 Test: Ray at t = 0 returns the origin
+Command: "/Users/tianyiliang/starterCode/utests/utest_ray" "Ray at t = 0 returns the origin"
+Directory: /Users/tianyiliang/starterCode/utests
+"Ray at t = 0 returns the origin" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Ray at t = 0 returns the origin"
+Randomness seeded to: 2597502832
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Ray at t = 0 returns the origin" end time: Oct 26 19:47 CDT
+"Ray at t = 0 returns the origin" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/11 Testing: Ray at t = 1 returns origin plus direction
+4/11 Test: Ray at t = 1 returns origin plus direction
+Command: "/Users/tianyiliang/starterCode/utests/utest_ray" "Ray at t = 1 returns origin plus direction"
+Directory: /Users/tianyiliang/starterCode/utests
+"Ray at t = 1 returns origin plus direction" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Ray at t = 1 returns origin plus direction"
+Randomness seeded to: 1196943650
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Ray at t = 1 returns origin plus direction" end time: Oct 26 19:47 CDT
+"Ray at t = 1 returns origin plus direction" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/11 Testing: Ray at positive t
+5/11 Test: Ray at positive t
+Command: "/Users/tianyiliang/starterCode/utests/utest_ray" "Ray at positive t"
+Directory: /Users/tianyiliang/starterCode/utests
+"Ray at positive t" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Ray at positive t"
+Randomness seeded to: 3508258946
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Ray at positive t" end time: Oct 26 19:47 CDT
+"Ray at positive t" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/11 Testing: Ray at negative t
+6/11 Test: Ray at negative t
+Command: "/Users/tianyiliang/starterCode/utests/utest_ray" "Ray at negative t"
+Directory: /Users/tianyiliang/starterCode/utests
+"Ray at negative t" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Ray at negative t"
+Randomness seeded to: 3063618348
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Ray at negative t" end time: Oct 26 19:47 CDT
+"Ray at negative t" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/11 Testing: Ray does not change after evaluating at
+7/11 Test: Ray does not change after evaluating at
+Command: "/Users/tianyiliang/starterCode/utests/utest_ray" "Ray does not change after evaluating at"
+Directory: /Users/tianyiliang/starterCode/utests
+"Ray does not change after evaluating at" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Ray does not change after evaluating at"
+Randomness seeded to: 3888054289
+===============================================================================
+All tests passed (6 assertions in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Ray does not change after evaluating at" end time: Oct 26 19:47 CDT
+"Ray does not change after evaluating at" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/11 Testing: Sphere hit
+8/11 Test: Sphere hit
+Command: "/Users/tianyiliang/starterCode/utests/utest_sphere" "Sphere hit"
+Directory: /Users/tianyiliang/starterCode/utests
+"Sphere hit" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Sphere hit"
+Randomness seeded to: 3136537524
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Sphere hit" end time: Oct 26 19:47 CDT
+"Sphere hit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/11 Testing: Sphere miss
+9/11 Test: Sphere miss
+Command: "/Users/tianyiliang/starterCode/utests/utest_sphere" "Sphere miss"
+Directory: /Users/tianyiliang/starterCode/utests
+"Sphere miss" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Sphere miss"
+Randomness seeded to: 3025563692
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Sphere miss" end time: Oct 26 19:47 CDT
+"Sphere miss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/11 Testing: Triangle hit
+10/11 Test: Triangle hit
+Command: "/Users/tianyiliang/starterCode/utests/utest_Triangle" "Triangle hit"
+Directory: /Users/tianyiliang/starterCode/utests
+"Triangle hit" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Triangle hit"
+Randomness seeded to: 3158083319
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Triangle hit" end time: Oct 26 19:47 CDT
+"Triangle hit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/11 Testing: Triangle miss
+11/11 Test: Triangle miss
+Command: "/Users/tianyiliang/starterCode/utests/utest_Triangle" "Triangle miss"
+Directory: /Users/tianyiliang/starterCode/utests
+"Triangle miss" start time: Oct 26 19:47 CDT
+Output:
+----------------------------------------------------------
+Filters: "Triangle miss"
+Randomness seeded to: 2321433227
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Triangle miss" end time: Oct 26 19:47 CDT
+"Triangle miss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 26 19:47 CDT

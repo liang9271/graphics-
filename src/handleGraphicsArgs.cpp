@@ -25,7 +25,7 @@
 using namespace sivelab;
 
 GraphicsArgs::GraphicsArgs()
-  : verbose(false),
+  : verbose(false), noPreview(false),
     windowWidth( default_WindowSize ), windowHeight( default_WindowSize ),
     width( default_WindowSize ), height( default_WindowSize ), 
     aspectRatio(1.0), useShadow(true),
@@ -43,6 +43,8 @@ GraphicsArgs::GraphicsArgs()
   reg("verbose", "turn on verbose output", ArgumentParsing::NONE, 'v');
   reg("inputfile", "input file name to use", ArgumentParsing::STRING, 'i');
   reg("outputfile", "output file name to use", ArgumentParsing::STRING, 'o');
+  reg("no-preview", "render the image without opening the preview window",
+      ArgumentParsing::NONE);
   reg("numcpus", "num of cores to use", ArgumentParsing::INT, 'n');
   reg("width", "width of output image (default is 100)", ArgumentParsing::INT, 'w');
   reg("height", "height of output image (default is 100)", ArgumentParsing::INT, 'h');
@@ -66,6 +68,7 @@ void GraphicsArgs::process(int argc, char *argv[])
     }
 
   verbose = isSet("verbose");
+  noPreview = isSet("no-preview");
   if (verbose) { std::cout << "Verbose Output: ON" << std::endl; }
   
   isSet("width", width);
@@ -110,4 +113,3 @@ void GraphicsArgs::process(int argc, char *argv[])
   isSet("outputfile", outputFileName);
   if (verbose) { std::cout << "Setting outputFileName to " << outputFileName << std::endl; }
 }
-

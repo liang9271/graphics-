@@ -1,0 +1,5 @@
+add_test( [==[Triangle hit]==] /Users/tianyiliang/starterCode/utests/utest_Triangle [==[Triangle hit]==]  )
+set_tests_properties( [==[Triangle hit]==] PROPERTIES WORKING_DIRECTORY /Users/tianyiliang/starterCode/utests SKIP_RETURN_CODE 4)
+add_test( [==[Triangle miss]==] /Users/tianyiliang/starterCode/utests/utest_Triangle [==[Triangle miss]==]  )
+set_tests_properties( [==[Triangle miss]==] PROPERTIES WORKING_DIRECTORY /Users/tianyiliang/starterCode/utests SKIP_RETURN_CODE 4)
+set( utest_Triangle_TESTS [==[Triangle hit]==] [==[Triangle miss]==])

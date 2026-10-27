@@ -1,0 +1,14 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/tianyiliang/starterCode/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/_deps/catch2-build/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/_deps/catch2-build/src/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/src/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/renderlib/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/examples/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/OpenGL/cmake_install.cmake",
+		"/Users/tianyiliang/starterCode/utests/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

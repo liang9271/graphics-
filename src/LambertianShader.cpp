@@ -12,48 +12,34 @@ color LambertianShader::rayColor(
     const Scene& scene,
     int depth)
 {
-    // Position of the point light.
-    vec3 lightPosition(0, 10, 5);
+    const std::vector<Scene::PointLight> fallbackLights = {
+        {point3(0, 10, 5), color(1, 1, 1)}
+    };
+    const auto& lights = scene.getPointLights().empty()
+        ? fallbackLights
+        : scene.getPointLights();
 
-    // Direction from the surface toward the light.
-    vec3 toLight = lightPosition - h.p;
-
-    double lightDistance = std::sqrt(dot(toLight, toLight));
-
-    vec3 lightDir =
-        unit_vector(toLight);
-
-    // Create a ray from the surface toward the light.
-    // Move it slightly away from the surface to avoid
-    // accidentally hitting the same surface.
-    point3 shadowOrigin =
-        h.p + 0.0001 * h.normal;
-
-    ray shadowRay(
-        shadowOrigin,
-        lightDir
-    );
-
-    // Check whether another object blocks the light.
-    HitSphere shadowHit;
-    std::shared_ptr<Shape> shadowShape;
-
-    if (scene.intersect(
-            shadowRay,
-            shadowHit,
-            shadowShape)) {
-
-        // If the object is between the surface and
-        // the light, the point is in shadow.
-        if (shadowHit.t < lightDistance) {
-            return diffuseColor * 0.2;
+    color result(0, 0, 0);
+    for (const auto& light : lights) {
+        const vec3 toLight = light.position - h.p;
+        const double lightDistance = toLight.length();
+        if (lightDistance <= 0.0) {
+            continue;
         }
+
+        const vec3 lightDirection = toLight / lightDistance;
+        const ray shadowRay(h.p + 0.0001 * h.normal, lightDirection);
+        HitSphere shadowHit;
+        std::shared_ptr<Shape> shadowShape;
+        if (scene.intersect(shadowRay, shadowHit, shadowShape) &&
+            shadowHit.t < lightDistance) {
+            result += diffuseColor * light.intensity * 0.2;
+            continue;
+        }
+
+        const double nDotL =
+            std::max(0.0, dot(h.normal, lightDirection));
+        result += diffuseColor * light.intensity * nDotL;
     }
-
-    // No object blocks the light, so calculate
-    // normal Lambertian lighting.
-    double nDotL =
-        std::max(0.0, dot(h.normal, lightDir));
-
-    return diffuseColor * nDotL;
+    return result;
 }

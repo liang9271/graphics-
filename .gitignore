@@ -2,6 +2,7 @@
 [Bb]uild/
 [Bb]uild*/
 cmake-build-debug/
+/src/JSONSceneLoader/
 
 .idea/
 

@@ -61,7 +61,8 @@ void Renderer::render(
                         );
                     }
                     else {
-                        c += spaceBackground(r.direction());
+                        c += scene.getBackgroundColor().value_or(
+                            spaceBackground(r.direction()));
                     }
                 }
             }
