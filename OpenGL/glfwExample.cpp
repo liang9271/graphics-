@@ -117,6 +117,11 @@ glBindBuffer(GL_ARRAY_BUFFER, 0);
 // once copied, we no longer need the data on the host                                                  
 host_VertexBuffer.clear();
 
+// Create a shader using my GLSLObject class                                                            
+sivelab::GLSLObject shader;
+shader.addShader( "vertexShader_passthrough.glsl", sivelab::GLSLObject::VERTEX_SHADER );
+shader.addShader( "fragmentShader_passthrough.glsl", sivelab::GLSLObject::FRAGMENT_SHADER );
+shader.createProgram();
 
 
     double timeDiff = 0.0, startFrameTime = 0.0, endFrameTime = 0.0;
@@ -132,7 +137,11 @@ host_VertexBuffer.clear();
         // background color)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        /* Render your objects here */
+        shader.activate();
+        glBindVertexArray(m_VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
+        shader.deactivate();
 
         // Swap the front and back buffers
         glfwSwapBuffers(window);
