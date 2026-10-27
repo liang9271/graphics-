@@ -200,29 +200,14 @@ shadows are appearing for the detail of the sphere.
 
 implemented anti-aliasing in the render, and it prevents jagging.
 
-## Rendering a JSON scene
+Json 
+I integrated the provided JSON scene parser with my renderer. The parser reads a scene sceneloader uses those values to create the camera, shaders, point lights, and supported shapes, then adds them to the scene. Features that are not supported yet, such as area lights and environment maps, report an error.
 
-The JSON scene parser is based on the
-[JSONSceneLoader example](https://github.com/umdcs4212/JSONSceneLoader). The
-renderer currently supports perspective cameras, point lights, spheres and
-triangles, and Lambertian, Blinn-Phong, and mirror shaders.
+To render a scene, run:
 
-Build the renderer, then pass a scene from the
-[sceneData repository](https://github.com/umdcs4212/sceneData) using
-`--inputfile`:
-
-```sh
-cmake --preset=default
-cmake --build buildVCPkg --target mainCode
-cmake --build buildVCPkg --target sceneLoaderTest
-./buildVCPkg/src/sceneLoaderTest \
-  /path/to/sceneData/scenes_A/oneSphere.json
 ./buildVCPkg/src/mainCode \
   --inputfile /path/to/sceneData/scenes_A/oneSphere.json \
   --outputfile oneSphere.png \
-  --width 512 --height 512 --no-preview
-```
-
-Omit `--no-preview` to open the live preview after the PNG is saved. Scenes
-using environment maps, area lights, textures, or unsupported shape or shader
-types report an error instead of silently rendering without those features.
+  --width 512 \
+  --height 512 \
+  --no-preview
