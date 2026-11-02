@@ -86,11 +86,11 @@ int main(void)
 glGenBuffers(1, m_triangleVBO);
 glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO[0]);
 
-// this is the actual triangle data that will be copied to                                              
-// the GPU memory                                                                                       
-std::vector< float > host_VertexBuffer{ -0.5f, -0.5f, 0.0f,    // V0                                    
-                                         0.5f, -0.5f, 0.0f,    // V1                                    
-                                         0.0f, 0.5f, 0.0f };   // V2                                    
+std::vector<float> host_VertexBuffer{
+    -0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom-left: red
+     0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom-right: green
+     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top: blue
+};
 
 int numBytes = host_VertexBuffer.size() * sizeof(float);
 
@@ -104,11 +104,15 @@ glBufferData(GL_ARRAY_BUFFER, numBytes, host_VertexBuffer.data(), GL_STATIC_DRAW
 glGenVertexArrays(1, &m_VAO);
 glBindVertexArray(m_VAO);
 
-// VAO details here - we only have 1 attribute or location                                              
-// (Position of the vertex)                                                                             
 glEnableVertexAttribArray(0);
-glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO[0]);
-glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,
+                      6 * sizeof(GLfloat), (void*)0);
+
+glEnableVertexAttribArray(1);
+glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE,
+                      6 * sizeof(GLfloat),
+                      (void*)(3 * sizeof(GLfloat)));
+
 glBindVertexArray(0);
 
 
