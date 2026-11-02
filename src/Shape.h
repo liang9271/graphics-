@@ -1,4 +1,5 @@
 #pragma once
+#include "BoundingBox.h"
 #include "ray.h"
 #include "Shader.h"
 #include <memory>
@@ -19,6 +20,7 @@ class Shape {
 public:
 
     virtual bool intersect(const ray& r, HitSphere& hit) = 0;
+    virtual BoundingBox boundingBox() const = 0;
 
     virtual ~Shape() = default;
 

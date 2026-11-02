@@ -130,6 +130,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/cs4212-util.dir/DependInfo.cmake"
   "src/CMakeFiles/mainCode.dir/DependInfo.cmake"
   "src/CMakeFiles/sceneLoaderTest.dir/DependInfo.cmake"
+  "src/CMakeFiles/bvhBenchmark.dir/DependInfo.cmake"
   "examples/CMakeFiles/test_pngWrite.dir/DependInfo.cmake"
   "examples/CMakeFiles/test_readPNGFile.dir/DependInfo.cmake"
   "OpenGL/CMakeFiles/glfwExample.dir/DependInfo.cmake"
@@ -165,4 +166,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "utests/CMakeFiles/utest_ray.dir/DependInfo.cmake"
   "utests/CMakeFiles/utest_sphere.dir/DependInfo.cmake"
   "utests/CMakeFiles/utest_Triangle.dir/DependInfo.cmake"
+  "utests/CMakeFiles/utest_bvh.dir/DependInfo.cmake"
   )

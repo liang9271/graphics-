@@ -574,12 +574,51 @@ utest_Triangle/fast:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/build
 .PHONY : utest_Triangle/fast
 
+# Convenience name for target.
+utests/CMakeFiles/utest_bvh.dir/rule:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utests/CMakeFiles/utest_bvh.dir/rule
+.PHONY : utests/CMakeFiles/utest_bvh.dir/rule
+
+# Convenience name for target.
+utest_bvh: utests/CMakeFiles/utest_bvh.dir/rule
+.PHONY : utest_bvh
+
+# fast build rule for target.
+utest_bvh/fast:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/build
+.PHONY : utest_bvh/fast
+
+__/src/Scene.o: __/src/Scene.cpp.o
+.PHONY : __/src/Scene.o
+
+# target to build an object file
+__/src/Scene.cpp.o:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Scene.cpp.o
+.PHONY : __/src/Scene.cpp.o
+
+__/src/Scene.i: __/src/Scene.cpp.i
+.PHONY : __/src/Scene.i
+
+# target to preprocess a source file
+__/src/Scene.cpp.i:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Scene.cpp.i
+.PHONY : __/src/Scene.cpp.i
+
+__/src/Scene.s: __/src/Scene.cpp.s
+.PHONY : __/src/Scene.s
+
+# target to generate assembly for a file
+__/src/Scene.cpp.s:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Scene.cpp.s
+.PHONY : __/src/Scene.cpp.s
+
 __/src/Sphere.o: __/src/Sphere.cpp.o
 .PHONY : __/src/Sphere.o
 
 # target to build an object file
 __/src/Sphere.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_sphere.dir/build.make utests/CMakeFiles/utest_sphere.dir/__/src/Sphere.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Sphere.cpp.o
 .PHONY : __/src/Sphere.cpp.o
 
 __/src/Sphere.i: __/src/Sphere.cpp.i
@@ -588,6 +627,7 @@ __/src/Sphere.i: __/src/Sphere.cpp.i
 # target to preprocess a source file
 __/src/Sphere.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_sphere.dir/build.make utests/CMakeFiles/utest_sphere.dir/__/src/Sphere.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Sphere.cpp.i
 .PHONY : __/src/Sphere.cpp.i
 
 __/src/Sphere.s: __/src/Sphere.cpp.s
@@ -596,6 +636,7 @@ __/src/Sphere.s: __/src/Sphere.cpp.s
 # target to generate assembly for a file
 __/src/Sphere.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_sphere.dir/build.make utests/CMakeFiles/utest_sphere.dir/__/src/Sphere.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Sphere.cpp.s
 .PHONY : __/src/Sphere.cpp.s
 
 __/src/Triangle.o: __/src/Triangle.cpp.o
@@ -604,6 +645,7 @@ __/src/Triangle.o: __/src/Triangle.cpp.o
 # target to build an object file
 __/src/Triangle.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/__/src/Triangle.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Triangle.cpp.o
 .PHONY : __/src/Triangle.cpp.o
 
 __/src/Triangle.i: __/src/Triangle.cpp.i
@@ -612,6 +654,7 @@ __/src/Triangle.i: __/src/Triangle.cpp.i
 # target to preprocess a source file
 __/src/Triangle.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/__/src/Triangle.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Triangle.cpp.i
 .PHONY : __/src/Triangle.cpp.i
 
 __/src/Triangle.s: __/src/Triangle.cpp.s
@@ -620,6 +663,7 @@ __/src/Triangle.s: __/src/Triangle.cpp.s
 # target to generate assembly for a file
 __/src/Triangle.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/__/src/Triangle.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/__/src/Triangle.cpp.s
 .PHONY : __/src/Triangle.cpp.s
 
 utest_Success.o: utest_Success.cpp.o
@@ -669,6 +713,30 @@ utest_Triangle.s: utest_Triangle.cpp.s
 utest_Triangle.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/utest_Triangle.cpp.s
 .PHONY : utest_Triangle.cpp.s
+
+utest_bvh.o: utest_bvh.cpp.o
+.PHONY : utest_bvh.o
+
+# target to build an object file
+utest_bvh.cpp.o:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/utest_bvh.cpp.o
+.PHONY : utest_bvh.cpp.o
+
+utest_bvh.i: utest_bvh.cpp.i
+.PHONY : utest_bvh.i
+
+# target to preprocess a source file
+utest_bvh.cpp.i:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/utest_bvh.cpp.i
+.PHONY : utest_bvh.cpp.i
+
+utest_bvh.s: utest_bvh.cpp.s
+.PHONY : utest_bvh.s
+
+# target to generate assembly for a file
+utest_bvh.cpp.s:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/utest_bvh.cpp.s
+.PHONY : utest_bvh.cpp.s
 
 utest_ray.o: utest_ray.cpp.o
 .PHONY : utest_ray.o
@@ -757,8 +825,12 @@ help:
 	@echo "... NightlyUpdate"
 	@echo "... utest_Success"
 	@echo "... utest_Triangle"
+	@echo "... utest_bvh"
 	@echo "... utest_ray"
 	@echo "... utest_sphere"
+	@echo "... __/src/Scene.o"
+	@echo "... __/src/Scene.i"
+	@echo "... __/src/Scene.s"
 	@echo "... __/src/Sphere.o"
 	@echo "... __/src/Sphere.i"
 	@echo "... __/src/Sphere.s"
@@ -771,6 +843,9 @@ help:
 	@echo "... utest_Triangle.o"
 	@echo "... utest_Triangle.i"
 	@echo "... utest_Triangle.s"
+	@echo "... utest_bvh.o"
+	@echo "... utest_bvh.i"
+	@echo "... utest_bvh.s"
 	@echo "... utest_ray.o"
 	@echo "... utest_ray.i"
 	@echo "... utest_ray.s"

@@ -206,12 +206,14 @@ renderlib/clean:
 src/all: src/CMakeFiles/cs4212-util.dir/all
 src/all: src/CMakeFiles/mainCode.dir/all
 src/all: src/CMakeFiles/sceneLoaderTest.dir/all
+src/all: src/CMakeFiles/bvhBenchmark.dir/all
 .PHONY : src/all
 
 # Recursive "codegen" directory target.
 src/codegen: src/CMakeFiles/cs4212-util.dir/codegen
 src/codegen: src/CMakeFiles/mainCode.dir/codegen
 src/codegen: src/CMakeFiles/sceneLoaderTest.dir/codegen
+src/codegen: src/CMakeFiles/bvhBenchmark.dir/codegen
 .PHONY : src/codegen
 
 # Recursive "preinstall" directory target.
@@ -222,6 +224,7 @@ src/preinstall:
 src/clean: src/CMakeFiles/cs4212-util.dir/clean
 src/clean: src/CMakeFiles/mainCode.dir/clean
 src/clean: src/CMakeFiles/sceneLoaderTest.dir/clean
+src/clean: src/CMakeFiles/bvhBenchmark.dir/clean
 .PHONY : src/clean
 
 #=============================================================================
@@ -232,6 +235,7 @@ utests/all: utests/CMakeFiles/utest_Success.dir/all
 utests/all: utests/CMakeFiles/utest_ray.dir/all
 utests/all: utests/CMakeFiles/utest_sphere.dir/all
 utests/all: utests/CMakeFiles/utest_Triangle.dir/all
+utests/all: utests/CMakeFiles/utest_bvh.dir/all
 .PHONY : utests/all
 
 # Recursive "codegen" directory target.
@@ -239,6 +243,7 @@ utests/codegen: utests/CMakeFiles/utest_Success.dir/codegen
 utests/codegen: utests/CMakeFiles/utest_ray.dir/codegen
 utests/codegen: utests/CMakeFiles/utest_sphere.dir/codegen
 utests/codegen: utests/CMakeFiles/utest_Triangle.dir/codegen
+utests/codegen: utests/CMakeFiles/utest_bvh.dir/codegen
 .PHONY : utests/codegen
 
 # Recursive "preinstall" directory target.
@@ -278,6 +283,7 @@ utests/clean: utests/CMakeFiles/utest_Success.dir/clean
 utests/clean: utests/CMakeFiles/utest_ray.dir/clean
 utests/clean: utests/CMakeFiles/utest_sphere.dir/clean
 utests/clean: utests/CMakeFiles/utest_Triangle.dir/clean
+utests/clean: utests/CMakeFiles/utest_bvh.dir/clean
 .PHONY : utests/clean
 
 #=============================================================================
@@ -287,12 +293,12 @@ utests/clean: utests/CMakeFiles/utest_Triangle.dir/clean
 _deps/catch2-build/src/CMakeFiles/Catch2.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69 "Built target Catch2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63 "Built target Catch2"
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/catch2-build/src/CMakeFiles/Catch2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 63
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2.dir/rule
@@ -304,7 +310,7 @@ Catch2: _deps/catch2-build/src/CMakeFiles/Catch2.dir/rule
 # codegen rule for target.
 _deps/catch2-build/src/CMakeFiles/Catch2.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69 "Finished codegen for target Catch2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63 "Finished codegen for target Catch2"
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2.dir/codegen
 
 # clean rule for target.
@@ -319,12 +325,12 @@ _deps/catch2-build/src/CMakeFiles/Catch2.dir/clean:
 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=70 "Built target Catch2WithMain"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=64,65 "Built target Catch2WithMain"
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 65
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/rule
@@ -336,7 +342,7 @@ Catch2WithMain: _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/rule
 # codegen rule for target.
 _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=70 "Finished codegen for target Catch2WithMain"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=64,65 "Finished codegen for target Catch2WithMain"
 .PHONY : _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/codegen
 
 # clean rule for target.
@@ -351,7 +357,7 @@ _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/clean:
 src/CMakeFiles/cs4212-util.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cs4212-util.dir/build.make src/CMakeFiles/cs4212-util.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cs4212-util.dir/build.make src/CMakeFiles/cs4212-util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=71,72,73 "Built target cs4212-util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=70,71,72 "Built target cs4212-util"
 .PHONY : src/CMakeFiles/cs4212-util.dir/all
 
 # Build rule for subdir invocation for target.
@@ -368,7 +374,7 @@ cs4212-util: src/CMakeFiles/cs4212-util.dir/rule
 # codegen rule for target.
 src/CMakeFiles/cs4212-util.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/cs4212-util.dir/build.make src/CMakeFiles/cs4212-util.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=71,72,73 "Finished codegen for target cs4212-util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=70,71,72 "Finished codegen for target cs4212-util"
 .PHONY : src/CMakeFiles/cs4212-util.dir/codegen
 
 # clean rule for target.
@@ -383,12 +389,12 @@ src/CMakeFiles/cs4212-util.dir/clean:
 src/CMakeFiles/mainCode.dir/all: src/CMakeFiles/cs4212-util.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=76,77,78,79,80,81,82,83 "Built target mainCode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=75,76,77,78,79,80,81 "Built target mainCode"
 .PHONY : src/CMakeFiles/mainCode.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/mainCode.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/mainCode.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : src/CMakeFiles/mainCode.dir/rule
@@ -400,7 +406,7 @@ mainCode: src/CMakeFiles/mainCode.dir/rule
 # codegen rule for target.
 src/CMakeFiles/mainCode.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=76,77,78,79,80,81,82,83 "Finished codegen for target mainCode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=75,76,77,78,79,80,81 "Finished codegen for target mainCode"
 .PHONY : src/CMakeFiles/mainCode.dir/codegen
 
 # clean rule for target.
@@ -415,7 +421,7 @@ src/CMakeFiles/mainCode.dir/clean:
 src/CMakeFiles/sceneLoaderTest.dir/all: src/CMakeFiles/cs4212-util.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=84,85,86,87,88,89,90 "Built target sceneLoaderTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=82,83,84,85,86,87,88 "Built target sceneLoaderTest"
 .PHONY : src/CMakeFiles/sceneLoaderTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -432,7 +438,7 @@ sceneLoaderTest: src/CMakeFiles/sceneLoaderTest.dir/rule
 # codegen rule for target.
 src/CMakeFiles/sceneLoaderTest.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=84,85,86,87,88,89,90 "Finished codegen for target sceneLoaderTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=82,83,84,85,86,87,88 "Finished codegen for target sceneLoaderTest"
 .PHONY : src/CMakeFiles/sceneLoaderTest.dir/codegen
 
 # clean rule for target.
@@ -441,18 +447,50 @@ src/CMakeFiles/sceneLoaderTest.dir/clean:
 .PHONY : src/CMakeFiles/sceneLoaderTest.dir/clean
 
 #=============================================================================
+# Target rules for target src/CMakeFiles/bvhBenchmark.dir
+
+# All Build rule for target.
+src/CMakeFiles/bvhBenchmark.dir/all: src/CMakeFiles/cs4212-util.dir/all
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=66,67,68,69 "Built target bvhBenchmark"
+.PHONY : src/CMakeFiles/bvhBenchmark.dir/all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/bvhBenchmark.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/bvhBenchmark.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
+.PHONY : src/CMakeFiles/bvhBenchmark.dir/rule
+
+# Convenience name for target.
+bvhBenchmark: src/CMakeFiles/bvhBenchmark.dir/rule
+.PHONY : bvhBenchmark
+
+# codegen rule for target.
+src/CMakeFiles/bvhBenchmark.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=66,67,68,69 "Finished codegen for target bvhBenchmark"
+.PHONY : src/CMakeFiles/bvhBenchmark.dir/codegen
+
+# clean rule for target.
+src/CMakeFiles/bvhBenchmark.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/clean
+.PHONY : src/CMakeFiles/bvhBenchmark.dir/clean
+
+#=============================================================================
 # Target rules for target examples/CMakeFiles/test_pngWrite.dir
 
 # All Build rule for target.
 examples/CMakeFiles/test_pngWrite.dir/all: src/CMakeFiles/cs4212-util.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test_pngWrite.dir/build.make examples/CMakeFiles/test_pngWrite.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test_pngWrite.dir/build.make examples/CMakeFiles/test_pngWrite.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=91,92 "Built target test_pngWrite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=89 "Built target test_pngWrite"
 .PHONY : examples/CMakeFiles/test_pngWrite.dir/all
 
 # Build rule for subdir invocation for target.
 examples/CMakeFiles/test_pngWrite.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/CMakeFiles/test_pngWrite.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : examples/CMakeFiles/test_pngWrite.dir/rule
@@ -464,7 +502,7 @@ test_pngWrite: examples/CMakeFiles/test_pngWrite.dir/rule
 # codegen rule for target.
 examples/CMakeFiles/test_pngWrite.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test_pngWrite.dir/build.make examples/CMakeFiles/test_pngWrite.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=91,92 "Finished codegen for target test_pngWrite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=89 "Finished codegen for target test_pngWrite"
 .PHONY : examples/CMakeFiles/test_pngWrite.dir/codegen
 
 # clean rule for target.
@@ -479,7 +517,7 @@ examples/CMakeFiles/test_pngWrite.dir/clean:
 examples/CMakeFiles/test_readPNGFile.dir/all: src/CMakeFiles/cs4212-util.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test_readPNGFile.dir/build.make examples/CMakeFiles/test_readPNGFile.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test_readPNGFile.dir/build.make examples/CMakeFiles/test_readPNGFile.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=93 "Built target test_readPNGFile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=90 "Built target test_readPNGFile"
 .PHONY : examples/CMakeFiles/test_readPNGFile.dir/all
 
 # Build rule for subdir invocation for target.
@@ -496,7 +534,7 @@ test_readPNGFile: examples/CMakeFiles/test_readPNGFile.dir/rule
 # codegen rule for target.
 examples/CMakeFiles/test_readPNGFile.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/test_readPNGFile.dir/build.make examples/CMakeFiles/test_readPNGFile.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=93 "Finished codegen for target test_readPNGFile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=90 "Finished codegen for target test_readPNGFile"
 .PHONY : examples/CMakeFiles/test_readPNGFile.dir/codegen
 
 # clean rule for target.
@@ -511,7 +549,7 @@ examples/CMakeFiles/test_readPNGFile.dir/clean:
 OpenGL/CMakeFiles/glfwExample.dir/all:
 	$(MAKE) $(MAKESILENT) -f OpenGL/CMakeFiles/glfwExample.dir/build.make OpenGL/CMakeFiles/glfwExample.dir/depend
 	$(MAKE) $(MAKESILENT) -f OpenGL/CMakeFiles/glfwExample.dir/build.make OpenGL/CMakeFiles/glfwExample.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=74,75 "Built target glfwExample"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=73,74 "Built target glfwExample"
 .PHONY : OpenGL/CMakeFiles/glfwExample.dir/all
 
 # Build rule for subdir invocation for target.
@@ -528,7 +566,7 @@ glfwExample: OpenGL/CMakeFiles/glfwExample.dir/rule
 # codegen rule for target.
 OpenGL/CMakeFiles/glfwExample.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f OpenGL/CMakeFiles/glfwExample.dir/build.make OpenGL/CMakeFiles/glfwExample.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=74,75 "Finished codegen for target glfwExample"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=73,74 "Finished codegen for target glfwExample"
 .PHONY : OpenGL/CMakeFiles/glfwExample.dir/codegen
 
 # clean rule for target.
@@ -1441,12 +1479,12 @@ utests/CMakeFiles/utest_Success.dir/all: _deps/catch2-build/src/CMakeFiles/Catch
 utests/CMakeFiles/utest_Success.dir/all: src/CMakeFiles/cs4212-util.dir/all
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Success.dir/build.make utests/CMakeFiles/utest_Success.dir/depend
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Success.dir/build.make utests/CMakeFiles/utest_Success.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=94 "Built target utest_Success"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=91,92 "Built target utest_Success"
 .PHONY : utests/CMakeFiles/utest_Success.dir/all
 
 # Build rule for subdir invocation for target.
 utests/CMakeFiles/utest_Success.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 74
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 70
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utests/CMakeFiles/utest_Success.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : utests/CMakeFiles/utest_Success.dir/rule
@@ -1458,7 +1496,7 @@ utest_Success: utests/CMakeFiles/utest_Success.dir/rule
 # codegen rule for target.
 utests/CMakeFiles/utest_Success.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Success.dir/build.make utests/CMakeFiles/utest_Success.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=94 "Finished codegen for target utest_Success"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=91,92 "Finished codegen for target utest_Success"
 .PHONY : utests/CMakeFiles/utest_Success.dir/codegen
 
 # clean rule for target.
@@ -1480,7 +1518,7 @@ utests/CMakeFiles/utest_ray.dir/all: src/CMakeFiles/cs4212-util.dir/all
 
 # Build rule for subdir invocation for target.
 utests/CMakeFiles/utest_ray.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 75
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 70
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utests/CMakeFiles/utest_ray.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : utests/CMakeFiles/utest_ray.dir/rule
@@ -1514,7 +1552,7 @@ utests/CMakeFiles/utest_sphere.dir/all: src/CMakeFiles/cs4212-util.dir/all
 
 # Build rule for subdir invocation for target.
 utests/CMakeFiles/utest_sphere.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 75
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 70
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utests/CMakeFiles/utest_sphere.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : utests/CMakeFiles/utest_sphere.dir/rule
@@ -1543,12 +1581,12 @@ utests/CMakeFiles/utest_Triangle.dir/all: _deps/catch2-build/src/CMakeFiles/Catc
 utests/CMakeFiles/utest_Triangle.dir/all: src/CMakeFiles/cs4212-util.dir/all
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/depend
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=95,96 "Built target utest_Triangle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=93 "Built target utest_Triangle"
 .PHONY : utests/CMakeFiles/utest_Triangle.dir/all
 
 # Build rule for subdir invocation for target.
 utests/CMakeFiles/utest_Triangle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 75
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 69
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utests/CMakeFiles/utest_Triangle.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
 .PHONY : utests/CMakeFiles/utest_Triangle.dir/rule
@@ -1560,13 +1598,47 @@ utest_Triangle: utests/CMakeFiles/utest_Triangle.dir/rule
 # codegen rule for target.
 utests/CMakeFiles/utest_Triangle.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=95,96 "Finished codegen for target utest_Triangle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=93 "Finished codegen for target utest_Triangle"
 .PHONY : utests/CMakeFiles/utest_Triangle.dir/codegen
 
 # clean rule for target.
 utests/CMakeFiles/utest_Triangle.dir/clean:
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/clean
 .PHONY : utests/CMakeFiles/utest_Triangle.dir/clean
+
+#=============================================================================
+# Target rules for target utests/CMakeFiles/utest_bvh.dir
+
+# All Build rule for target.
+utests/CMakeFiles/utest_bvh.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2.dir/all
+utests/CMakeFiles/utest_bvh.dir/all: _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/all
+utests/CMakeFiles/utest_bvh.dir/all: src/CMakeFiles/cs4212-util.dir/all
+	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/depend
+	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=94,95,96 "Built target utest_bvh"
+.PHONY : utests/CMakeFiles/utest_bvh.dir/all
+
+# Build rule for subdir invocation for target.
+utests/CMakeFiles/utest_bvh.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 71
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utests/CMakeFiles/utest_bvh.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tianyiliang/starterCode/CMakeFiles 0
+.PHONY : utests/CMakeFiles/utest_bvh.dir/rule
+
+# Convenience name for target.
+utest_bvh: utests/CMakeFiles/utest_bvh.dir/rule
+.PHONY : utest_bvh
+
+# codegen rule for target.
+utests/CMakeFiles/utest_bvh.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tianyiliang/starterCode/CMakeFiles --progress-num=94,95,96 "Finished codegen for target utest_bvh"
+.PHONY : utests/CMakeFiles/utest_bvh.dir/codegen
+
+# clean rule for target.
+utests/CMakeFiles/utest_bvh.dir/clean:
+	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/clean
+.PHONY : utests/CMakeFiles/utest_bvh.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

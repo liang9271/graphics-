@@ -1,5 +1,71 @@
 This project uses CMake and vcpkg for managing C++ dependencies. It serves as a simple example to test your build setup before we get into more complicted code.
 
+## Bronze Extension: Bounding Volume Hierarchy
+
+A Bounding Volume Hierarchy (BVH) speeds up ray tracing by organizing shapes
+into a tree of bounding boxes. Instead of testing every ray against every
+shape, the renderer first checks the boxes and skips shapes inside boxes the
+ray misses.
+
+### How the BVH works in this renderer
+
+1. Each sphere and triangle calculates an axis-aligned bounding box around
+   itself.
+2. When the scene is first queried, its shapes are sorted into a binary tree.
+   The tree splits shapes around the middle of their box centers along the
+   widest axis. Each leaf holds at most four shapes.
+3. For each ray, the renderer checks the tree boxes. If a box is missed, all
+   shapes inside it are skipped. In a leaf, it tests the ray against its
+   shapes and keeps the nearest hit.
+4. If a shape is added, the tree is marked out of date and rebuilt at the next
+   intersection query. Primary, shadow, and reflection rays all use the same
+   scene intersection method.
+
+The original brute-force intersection method is retained so the benchmark can
+compare both approaches and verify that they produce the same image.
+
+### Build, test, and render
+
+From the repository folder, configure a Release build and build the renderer,
+benchmark, and BVH test:
+
+```sh
+cmake --preset=default -DCMAKE_BUILD_TYPE=Release
+cmake --build buildVCPkg --target mainCode bvhBenchmark utest_bvh
+ctest --test-dir buildVCPkg --output-on-failure
+```
+
+The configure step requires the project dependencies described in the
+vcpkg setup section below. The test command runs the unit tests, including
+checks that BVH and brute-force intersections return the same nearest shape.
+
+Render the built-in scene as a 1000x1000 PNG without opening the preview:
+
+```sh
+./buildVCPkg/src/mainCode --no-preview --width 1000 --height 1000 \
+  --outputfile render.png
+```
+
+Run the benchmark:
+
+```sh
+./buildVCPkg/src/bvhBenchmark
+```
+
+The benchmark renders a scene containing 108 Lambertian (diffuse) spheres and
+a ground triangle at 1000x1000, with four rays per pixel. It times three
+renders with the BVH and three without, then reports the median time and
+speedup. It also checks that both render paths produce identical images.
+
+Example result from an Apple M2 Pro (Release build):
+
+| Scene | Resolution / samples | BVH build | BVH render | Brute-force render | Speedup |
+|---|---:|---:|---:|---:|---:|
+| 108 spheres + ground triangle | 1000x1000 / 4 rays per pixel | 0.03 ms | 495.31 ms | 1238.72 ms | 2.50x |
+
+Render times vary by computer; run the benchmark on your own machine to get
+its timings.
+
 ## Building Using CMake Presets
 
 We have several CMake Build Presets that are outlined in the CMakePresets.json. Some are for building for Release or Debug mode. Running the default setup is just fine too.
@@ -210,3 +276,19 @@ cmake --build . --target mainCode
 tianyiliang@Tianyis-MacBook-Pro starterCode % cmake --build . --target mainCode
 [ 27%] Built target cs4212-util
 [100%] Built target mainCode
+
+
+
+
+Extension BVH 
+It renders 108 diffuse spheres and a ground triangle at 1000x1000 with four rays per pixel. 
+using Apple M2 Pro to render.
+each shape has a bounding box around it, the scene make thpse boxes into a tree, then splitting them to small groups.
+
+Scene: 108 Lambertian spheres and 1 triangle
+Image: 1000x1000, 4 rays per pixel
+BVH build: 0.03 ms
+Median BVH render (3 runs): 495.31 ms
+Median brute-force render (3 runs): 1238.72 ms
+Speedup: 2.50x
+Image comparison: identical

@@ -8,6 +8,7 @@ Sphere();
 Sphere(const point3& cente, double radius);
 
 bool intersect(const ray& r, HitSphere& hit) override;
+BoundingBox boundingBox() const override;
 
 private:
 

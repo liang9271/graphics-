@@ -22,7 +22,8 @@ set(UTESTS
   utest_Success
   utest_ray
   utest_sphere
-utest_Triangle)
+  utest_Triangle
+  utest_bvh)
 #utest_Failure
 # 
 # For each of the executables named in ${UTESTS}, compile them into a
@@ -34,6 +35,11 @@ if(uexec STREQUAL "utest_sphere")
     add_executable(${uexec} ${uexec}.cpp ${CMAKE_SOURCE_DIR}/src/Sphere.cpp)
 elseif(uexec STREQUAL "utest_Triangle")
     add_executable(${uexec} ${uexec}.cpp ${CMAKE_SOURCE_DIR}/src/Triangle.cpp)
+elseif(uexec STREQUAL "utest_bvh")
+    add_executable(${uexec} ${uexec}.cpp
+      ${CMAKE_SOURCE_DIR}/src/Scene.cpp
+      ${CMAKE_SOURCE_DIR}/src/Sphere.cpp
+      ${CMAKE_SOURCE_DIR}/src/Triangle.cpp)
 else()
     add_executable(${uexec} ${uexec}.cpp)
 endif()

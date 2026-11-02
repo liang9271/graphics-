@@ -54,3 +54,15 @@ add_executable(sceneLoaderTest
 )
 target_link_libraries(sceneLoaderTest PRIVATE cs4212-util)
 target_link_libraries(sceneLoaderTest PRIVATE nlohmann_json::nlohmann_json)
+
+add_executable(bvhBenchmark
+  bvhBenchmark.cpp
+  Sphere.cpp
+  Triangle.cpp
+  Scene.cpp
+  Renderer.cpp
+  Camera.cpp
+  LambertianShader.cpp
+)
+target_link_libraries(bvhBenchmark PRIVATE cs4212-util)
+target_link_libraries(bvhBenchmark PRIVATE PNG::PNG ZLIB::ZLIB)

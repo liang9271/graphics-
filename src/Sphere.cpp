@@ -24,7 +24,14 @@ bool Sphere::intersect(const ray& r, HitSphere& hit)
         return false;
     }
 
-    double t = (-b - std::sqrt(discriminant)) / (2.0 * a);
+    const double root = std::sqrt(discriminant);
+    double t = (-b - root) / (2.0 * a);
+    if (t < 0.0) {
+        t = (-b + root) / (2.0 * a);
+    }
+    if (t < 0.0) {
+        return false;
+    }
 
     hit.t = t;
     hit.p = r.at(t);
@@ -32,4 +39,10 @@ bool Sphere::intersect(const ray& r, HitSphere& hit)
     hit.r = r;
 
     return true;
+}
+
+BoundingBox Sphere::boundingBox() const
+{
+    const vec3 radiusVector(radius, radius, radius);
+    return BoundingBox(center - radiusVector, center + radiusVector);
 }

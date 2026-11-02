@@ -192,6 +192,19 @@ sceneLoaderTest/fast:
 .PHONY : sceneLoaderTest/fast
 
 #=============================================================================
+# Target rules for targets named bvhBenchmark
+
+# Build rule for target.
+bvhBenchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bvhBenchmark
+.PHONY : bvhBenchmark
+
+# fast build rule for target.
+bvhBenchmark/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/build
+.PHONY : bvhBenchmark/fast
+
+#=============================================================================
 # Target rules for targets named test_pngWrite
 
 # Build rule for target.
@@ -646,6 +659,19 @@ utest_Triangle/fast:
 	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_Triangle.dir/build.make utests/CMakeFiles/utest_Triangle.dir/build
 .PHONY : utest_Triangle/fast
 
+#=============================================================================
+# Target rules for targets named utest_bvh
+
+# Build rule for target.
+utest_bvh: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 utest_bvh
+.PHONY : utest_bvh
+
+# fast build rule for target.
+utest_bvh/fast:
+	$(MAKE) $(MAKESILENT) -f utests/CMakeFiles/utest_bvh.dir/build.make utests/CMakeFiles/utest_bvh.dir/build
+.PHONY : utest_bvh/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -685,6 +711,7 @@ help:
 	@echo "... NightlyUpdate"
 	@echo "... Catch2"
 	@echo "... Catch2WithMain"
+	@echo "... bvhBenchmark"
 	@echo "... cs4212-util"
 	@echo "... glfwExample"
 	@echo "... mainCode"
@@ -693,6 +720,7 @@ help:
 	@echo "... test_readPNGFile"
 	@echo "... utest_Success"
 	@echo "... utest_Triangle"
+	@echo "... utest_bvh"
 	@echo "... utest_ray"
 	@echo "... utest_sphere"
 .PHONY : help

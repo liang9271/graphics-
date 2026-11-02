@@ -6,7 +6,7 @@
 
 class Renderer {
 public:
-    Renderer(const Camera& camera);
+    Renderer(const Camera& camera, int samplesPerAxis = 4);
 
     void render(
         const Scene& scene,
@@ -15,4 +15,5 @@ public:
 
 private:
     Camera camera;
+    int samplesPerAxis;
 };

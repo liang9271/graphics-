@@ -12,6 +12,7 @@
 /Users/tianyiliang/starterCode/src/CMakeFiles/cs4212-util.dir
 /Users/tianyiliang/starterCode/src/CMakeFiles/mainCode.dir
 /Users/tianyiliang/starterCode/src/CMakeFiles/sceneLoaderTest.dir
+/Users/tianyiliang/starterCode/src/CMakeFiles/bvhBenchmark.dir
 /Users/tianyiliang/starterCode/src/CMakeFiles/test.dir
 /Users/tianyiliang/starterCode/src/CMakeFiles/edit_cache.dir
 /Users/tianyiliang/starterCode/src/CMakeFiles/rebuild_cache.dir
@@ -59,6 +60,7 @@
 /Users/tianyiliang/starterCode/utests/CMakeFiles/utest_ray.dir
 /Users/tianyiliang/starterCode/utests/CMakeFiles/utest_sphere.dir
 /Users/tianyiliang/starterCode/utests/CMakeFiles/utest_Triangle.dir
+/Users/tianyiliang/starterCode/utests/CMakeFiles/utest_bvh.dir
 /Users/tianyiliang/starterCode/utests/CMakeFiles/test.dir
 /Users/tianyiliang/starterCode/utests/CMakeFiles/edit_cache.dir
 /Users/tianyiliang/starterCode/utests/CMakeFiles/rebuild_cache.dir

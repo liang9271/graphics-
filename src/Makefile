@@ -168,6 +168,20 @@ sceneLoaderTest/fast:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/build
 .PHONY : sceneLoaderTest/fast
 
+# Convenience name for target.
+src/CMakeFiles/bvhBenchmark.dir/rule:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/bvhBenchmark.dir/rule
+.PHONY : src/CMakeFiles/bvhBenchmark.dir/rule
+
+# Convenience name for target.
+bvhBenchmark: src/CMakeFiles/bvhBenchmark.dir/rule
+.PHONY : bvhBenchmark
+
+# fast build rule for target.
+bvhBenchmark/fast:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/build
+.PHONY : bvhBenchmark/fast
+
 ArgumentParsing.o: ArgumentParsing.cpp.o
 .PHONY : ArgumentParsing.o
 
@@ -226,6 +240,7 @@ Camera.o: Camera.cpp.o
 Camera.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Camera.cpp.o
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Camera.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Camera.cpp.o
 .PHONY : Camera.cpp.o
 
 Camera.i: Camera.cpp.i
@@ -235,6 +250,7 @@ Camera.i: Camera.cpp.i
 Camera.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Camera.cpp.i
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Camera.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Camera.cpp.i
 .PHONY : Camera.cpp.i
 
 Camera.s: Camera.cpp.s
@@ -244,6 +260,7 @@ Camera.s: Camera.cpp.s
 Camera.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Camera.cpp.s
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Camera.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Camera.cpp.s
 .PHONY : Camera.cpp.s
 
 Framebuffer.o: Framebuffer.cpp.o
@@ -277,6 +294,7 @@ LambertianShader.o: LambertianShader.cpp.o
 LambertianShader.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/LambertianShader.cpp.o
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/LambertianShader.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/LambertianShader.cpp.o
 .PHONY : LambertianShader.cpp.o
 
 LambertianShader.i: LambertianShader.cpp.i
@@ -286,6 +304,7 @@ LambertianShader.i: LambertianShader.cpp.i
 LambertianShader.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/LambertianShader.cpp.i
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/LambertianShader.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/LambertianShader.cpp.i
 .PHONY : LambertianShader.cpp.i
 
 LambertianShader.s: LambertianShader.cpp.s
@@ -295,6 +314,7 @@ LambertianShader.s: LambertianShader.cpp.s
 LambertianShader.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/LambertianShader.cpp.s
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/LambertianShader.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/LambertianShader.cpp.s
 .PHONY : LambertianShader.cpp.s
 
 MirrorShader.o: MirrorShader.cpp.o
@@ -330,6 +350,7 @@ Renderer.o: Renderer.cpp.o
 # target to build an object file
 Renderer.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Renderer.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Renderer.cpp.o
 .PHONY : Renderer.cpp.o
 
 Renderer.i: Renderer.cpp.i
@@ -338,6 +359,7 @@ Renderer.i: Renderer.cpp.i
 # target to preprocess a source file
 Renderer.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Renderer.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Renderer.cpp.i
 .PHONY : Renderer.cpp.i
 
 Renderer.s: Renderer.cpp.s
@@ -346,6 +368,7 @@ Renderer.s: Renderer.cpp.s
 # target to generate assembly for a file
 Renderer.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Renderer.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Renderer.cpp.s
 .PHONY : Renderer.cpp.s
 
 Scene.o: Scene.cpp.o
@@ -355,6 +378,7 @@ Scene.o: Scene.cpp.o
 Scene.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Scene.cpp.o
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Scene.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Scene.cpp.o
 .PHONY : Scene.cpp.o
 
 Scene.i: Scene.cpp.i
@@ -364,6 +388,7 @@ Scene.i: Scene.cpp.i
 Scene.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Scene.cpp.i
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Scene.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Scene.cpp.i
 .PHONY : Scene.cpp.i
 
 Scene.s: Scene.cpp.s
@@ -373,6 +398,7 @@ Scene.s: Scene.cpp.s
 Scene.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Scene.cpp.s
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Scene.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Scene.cpp.s
 .PHONY : Scene.cpp.s
 
 SceneLoader.o: SceneLoader.cpp.o
@@ -436,6 +462,7 @@ Sphere.o: Sphere.cpp.o
 Sphere.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Sphere.cpp.o
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Sphere.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Sphere.cpp.o
 .PHONY : Sphere.cpp.o
 
 Sphere.i: Sphere.cpp.i
@@ -445,6 +472,7 @@ Sphere.i: Sphere.cpp.i
 Sphere.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Sphere.cpp.i
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Sphere.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Sphere.cpp.i
 .PHONY : Sphere.cpp.i
 
 Sphere.s: Sphere.cpp.s
@@ -454,6 +482,7 @@ Sphere.s: Sphere.cpp.s
 Sphere.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Sphere.cpp.s
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Sphere.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Sphere.cpp.s
 .PHONY : Sphere.cpp.s
 
 Triangle.o: Triangle.cpp.o
@@ -463,6 +492,7 @@ Triangle.o: Triangle.cpp.o
 Triangle.cpp.o:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Triangle.cpp.o
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Triangle.cpp.o
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Triangle.cpp.o
 .PHONY : Triangle.cpp.o
 
 Triangle.i: Triangle.cpp.i
@@ -472,6 +502,7 @@ Triangle.i: Triangle.cpp.i
 Triangle.cpp.i:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Triangle.cpp.i
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Triangle.cpp.i
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Triangle.cpp.i
 .PHONY : Triangle.cpp.i
 
 Triangle.s: Triangle.cpp.s
@@ -481,7 +512,32 @@ Triangle.s: Triangle.cpp.s
 Triangle.cpp.s:
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mainCode.dir/build.make src/CMakeFiles/mainCode.dir/Triangle.cpp.s
 	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/sceneLoaderTest.dir/build.make src/CMakeFiles/sceneLoaderTest.dir/Triangle.cpp.s
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/Triangle.cpp.s
 .PHONY : Triangle.cpp.s
+
+bvhBenchmark.o: bvhBenchmark.cpp.o
+.PHONY : bvhBenchmark.o
+
+# target to build an object file
+bvhBenchmark.cpp.o:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/bvhBenchmark.cpp.o
+.PHONY : bvhBenchmark.cpp.o
+
+bvhBenchmark.i: bvhBenchmark.cpp.i
+.PHONY : bvhBenchmark.i
+
+# target to preprocess a source file
+bvhBenchmark.cpp.i:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/bvhBenchmark.cpp.i
+.PHONY : bvhBenchmark.cpp.i
+
+bvhBenchmark.s: bvhBenchmark.cpp.s
+.PHONY : bvhBenchmark.s
+
+# target to generate assembly for a file
+bvhBenchmark.cpp.s:
+	cd /Users/tianyiliang/starterCode && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bvhBenchmark.dir/build.make src/CMakeFiles/bvhBenchmark.dir/bvhBenchmark.cpp.s
+.PHONY : bvhBenchmark.cpp.s
 
 handleGraphicsArgs.o: handleGraphicsArgs.cpp.o
 .PHONY : handleGraphicsArgs.o
@@ -588,6 +644,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... bvhBenchmark"
 	@echo "... cs4212-util"
 	@echo "... mainCode"
 	@echo "... sceneLoaderTest"
@@ -627,6 +684,9 @@ help:
 	@echo "... Triangle.o"
 	@echo "... Triangle.i"
 	@echo "... Triangle.s"
+	@echo "... bvhBenchmark.o"
+	@echo "... bvhBenchmark.i"
+	@echo "... bvhBenchmark.s"
 	@echo "... handleGraphicsArgs.o"
 	@echo "... handleGraphicsArgs.i"
 	@echo "... handleGraphicsArgs.s"

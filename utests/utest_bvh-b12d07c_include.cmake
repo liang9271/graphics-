@@ -1,0 +1,5 @@
+if(EXISTS "/Users/tianyiliang/starterCode/utests/utest_bvh-b12d07c_tests.cmake")
+  include("/Users/tianyiliang/starterCode/utests/utest_bvh-b12d07c_tests.cmake")
+else()
+  add_test(utest_bvh_NOT_BUILT-b12d07c utest_bvh_NOT_BUILT-b12d07c)
+endif()

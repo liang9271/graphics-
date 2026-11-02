@@ -8,3 +8,4 @@ include("/Users/tianyiliang/starterCode/utests/utest_Success-b12d07c_include.cma
 include("/Users/tianyiliang/starterCode/utests/utest_ray-b12d07c_include.cmake")
 include("/Users/tianyiliang/starterCode/utests/utest_sphere-b12d07c_include.cmake")
 include("/Users/tianyiliang/starterCode/utests/utest_Triangle-b12d07c_include.cmake")
+include("/Users/tianyiliang/starterCode/utests/utest_bvh-b12d07c_include.cmake")

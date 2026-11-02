@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#include <algorithm>
 #include <cmath>
 
 Triangle::Triangle()
@@ -58,4 +59,22 @@ bool Triangle::intersect(const ray& r, HitSphere& hit)
     hit.r = r;
 
     return true;
+}
+
+BoundingBox Triangle::boundingBox() const
+{
+    constexpr double padding = 1e-8;
+    point3 minimum(
+        std::min({v0.x(), v1.x(), v2.x()}),
+        std::min({v0.y(), v1.y(), v2.y()}),
+        std::min({v0.z(), v1.z(), v2.z()}));
+    point3 maximum(
+        std::max({v0.x(), v1.x(), v2.x()}),
+        std::max({v0.y(), v1.y(), v2.y()}),
+        std::max({v0.z(), v1.z(), v2.z()}));
+    for (int axis = 0; axis < 3; ++axis) {
+        minimum[axis] -= padding;
+        maximum[axis] += padding;
+    }
+    return BoundingBox(minimum, maximum);
 }
