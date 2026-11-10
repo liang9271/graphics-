@@ -87,8 +87,8 @@ glGenBuffers(1, m_triangleVBO);
 glBindBuffer(GL_ARRAY_BUFFER, m_triangleVBO[0]);
 
 std::vector<float> host_VertexBuffer{
-    -3.0f, -3.0f, 0.0f,  1.0f, 0.0f, 0.0f,
-     3.0f, -3.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+    -3.0f, -3.0f, 0.0f,  0.0f, 0.0f, 1.0f,
+     3.0f, -3.0f, 0.0f,  0.0f, 0.0f, 1.0f,
      0.0f,  3.0f, 0.0f,  0.0f, 0.0f, 1.0f
 };
 
@@ -125,13 +125,20 @@ host_VertexBuffer.clear();
 sivelab::GLSLObject shader;
 shader.addShader("vertexShader_withMatrixTransformation.glsl",
                  sivelab::GLSLObject::VERTEX_SHADER);
-shader.addShader("fragmentShader_passthrough.glsl",
+shader.addShader("fragmentShader_normals.glsl",
                  sivelab::GLSLObject::FRAGMENT_SHADER);
 shader.createProgram();
 
 GLuint projMatrixID = shader.createUniform("projMatrix");
 GLuint viewMatrixID = shader.createUniform("viewMatrix");
 GLuint modelMatrixID = shader.createUniform("modelMatrix");
+GLuint normalMatrixID = shader.createUniform("normalMatrix");
+GLuint lightPosWorldID = shader.createUniform("lightPosWorld");
+GLuint diffuseComponentID = shader.createUniform("diffuseComponent");
+GLuint eyePosWorldID = shader.createUniform("eyePosWorld");
+GLuint specularComponentID = shader.createUniform("specularComponent");
+GLuint shininessID = shader.createUniform("shininess");
+GLuint lightIntensityID = shader.createUniform("lightIntensity");
 
 
 glm::vec3 m_pos(0.0f, 0.0f, 10.0f);
@@ -159,7 +166,19 @@ glm::vec3 m_W(0.0f, 0.0f, 1.0f);
         glm::mat4 viewMatrix = glm::lookAt(m_pos, m_pos - m_W, m_V);
         float elapsedTime = static_cast<float>(glfwGetTime());
         glm::mat4 modelMatrix = glm::rotate(
-            glm::mat4(1.0f), elapsedTime, glm::vec3(0.0f, 0.0f, 1.0f));
+        glm::mat4(1.0f),
+        glm::radians(45.0f),
+        glm::vec3(0.0f, 1.0f, 0.0f));
+        // glm::mat4 modelMatrix = glm::rotate(
+         //   glm::mat4(1.0f), elapsedTime, glm::vec3(0.0f, 0.0f, 1.0f));
+        glm::mat4 normalMatrix =
+            glm::transpose(glm::inverse(modelMatrix));
+        glm::vec4 lightPosWorld(5.0f, 0.0f, 0.0f, 1.0f);
+        glm::vec3 diffuseComponent(0.3f, 0.1f, 0.4f);
+        glm::vec4 eyePosWorld(m_pos, 1.0f);
+        glm::vec3 specularComponent(0.35f, 0.35f, 0.35f);
+        float shininess = 32.0f;
+        float lightIntensity = 1.4f;
 
         shader.activate();
         glUniformMatrix4fv(projMatrixID, 1, GL_FALSE,
@@ -168,6 +187,18 @@ glm::vec3 m_W(0.0f, 0.0f, 1.0f);
                            glm::value_ptr(viewMatrix));
         glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE,
                            glm::value_ptr(modelMatrix));
+        glUniformMatrix4fv(normalMatrixID, 1, GL_FALSE,
+                           glm::value_ptr(normalMatrix));
+        glUniform4fv(lightPosWorldID, 1,
+                     glm::value_ptr(lightPosWorld));
+        glUniform3fv(diffuseComponentID, 1,
+                     glm::value_ptr(diffuseComponent));
+        glUniform4fv(eyePosWorldID, 1,
+                     glm::value_ptr(eyePosWorld));
+        glUniform3fv(specularComponentID, 1,
+                     glm::value_ptr(specularComponent));
+        glUniform1f(shininessID, shininess);
+        glUniform1f(lightIntensityID, lightIntensity);
         glBindVertexArray(m_VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
@@ -182,11 +213,11 @@ glm::vec3 m_W(0.0f, 0.0f, 1.0f);
         float moveRatePerFrame = 0.05f;
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
             m_pos += -m_W * moveRatePerFrame;
-        } else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        } else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
             m_pos -= m_U * moveRatePerFrame;
         } else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
             m_pos += m_W * moveRatePerFrame;
-        } else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        } else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
             m_pos += m_U * moveRatePerFrame;
         }
 
